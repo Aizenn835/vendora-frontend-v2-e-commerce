@@ -1,0 +1,24 @@
+:root {
+  --color-primary: #10203f;
+  --color-supporting-text:rgb(192, 189, 189);
+  --color-primary-hover: #1d3566;
+  --color-accent: #c9a227;
+  --color-bg: #f6f8fb;
+  --color-surface: #ffffff;
+  --color-text: #0f1a2e;
+  --color-muted: #5f6b7a;
+  --color-border: #dde2ea;
+  --color-success: #2e7d52;
+  --color-error: #c62828;
+  --color-warning: #b26a00;
+
+}
+*{
+   margin:0;
+   padding:0;
+   box-sizing: border-box;
+}
+
+body{
+  font-family: 'DM Sans' , 'Plus Jakarta Sans';
+}

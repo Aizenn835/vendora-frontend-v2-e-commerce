@@ -1,0 +1,17 @@
+.left-modal-text-container{
+    position:absolute;
+    top:30%;
+    left:5%;
+}
+.left-modal-text-header{
+    width: 100%;
+    max-width: 70%;
+    color: var(--color-bg);
+    font-size:2.25rem;
+}
+.left-modal-supporting-text{
+    width: 100%;
+    max-width: 70%;
+    color:var(--color-supporting-text);
+
+}
