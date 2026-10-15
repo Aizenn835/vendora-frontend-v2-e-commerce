@@ -1,0 +1,53 @@
+.auth-form{
+    gap:12px;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 400px;
+    margin-top:30px;
+}
+/* Form Login */
+.form{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:3px;
+}
+.password-form-container{
+    display:flex;
+    justify-content: space-between;
+}
+.form-text{
+    text-transform: uppercase;
+    font-size:0.825rem;
+    color: var(--color-muted);
+    font-weight: 550;
+}
+.forgot-password{
+    color:var(--color-primary);
+    font-size:0.80rem;
+}
+.inner-input-container{
+    width: 100%;
+    display:flex;
+    border:1px solid rgb(182, 179, 179);
+    align-items: center;
+    padding-right: 10px;
+    border-radius: 5px;
+    z-index: 5000;
+}
+.inner-input-container input{
+    width: 100%;
+    border:none;
+    outline: none;
+    margin:12px;
+    z-index: 400;
+}
+.inner-input-container svg{
+    color:rgb(182, 179, 179);
+    cursor: pointer;
+}
+

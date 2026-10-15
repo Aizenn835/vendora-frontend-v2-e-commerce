@@ -1,0 +1,31 @@
+.left-card-hero-container {
+    position: absolute;
+    bottom: 25%;
+    left: 8%;
+    right: 8%;
+    display: flex;
+    gap: 12px;
+    max-width: 600px;
+    align-items: center;
+}
+
+.left-card-img-container {
+    flex: 1;
+    min-width: 0;
+}
+.left-card-img-container:nth-child(2) {
+    transform: translateY(-16px);
+}
+.img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 16px;
+}
+@media (max-width: 1280px) {
+  .left-card-hero-container {
+    display: none;
+  }
+  
+}

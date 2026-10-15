@@ -11,3 +11,27 @@
     top:5%;
     left:5%;
 }
+.ratings{
+    position: absolute;
+    bottom: 2%;
+    left:7%;
+    display:flex;
+    align-items: center;
+    gap:12px;
+}
+.left-card-rating-container{
+    display:flex;
+    gap:5px;
+}
+.left-card-rating-container svg{
+    color: var(--color-supporting-text);
+}
+.rate-text{
+    color:var(--color-supporting-text);
+    font-size:0.825rem;
+}
+@media (max-width: 1280px) {
+  .left-card-container{
+    display:none;
+  }
+}

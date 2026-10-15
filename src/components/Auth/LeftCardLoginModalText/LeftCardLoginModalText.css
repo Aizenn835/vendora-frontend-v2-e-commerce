@@ -1,7 +1,7 @@
 .left-modal-text-container{
     position:absolute;
-    top:30%;
-    left:5%;
+    top:25%;
+    left:8%;
 }
 .left-modal-text-header{
     width: 100%;
@@ -13,5 +13,4 @@
     width: 100%;
     max-width: 70%;
     color:var(--color-supporting-text);
-
 }

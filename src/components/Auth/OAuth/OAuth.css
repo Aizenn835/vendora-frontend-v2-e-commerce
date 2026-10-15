@@ -1,0 +1,35 @@
+.oauth-container-login{
+    display:flex;
+    justify-content: space-evenly;
+    gap:12px;
+    width: 100%;
+    max-width: 400px;
+    margin-top:12px;
+}
+.oauth-btn-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.facebook{
+    background-color: #1877F2;
+    gap:5px;
+    border:none;
+}
+.oauth-facebook-text{
+    color: var(--color-bg);
+    font-size:0.895rem;
+    font-weight: 490;
+}
+.google{
+    background-color: #f5f7fa;
+    border:1px solid rgb(206, 200, 200);
+}
+.oauth-google-text{
+    color:rgb(61, 60, 60);
+    font-size:0.9285rem;
+    font-weight: 490;
+}
