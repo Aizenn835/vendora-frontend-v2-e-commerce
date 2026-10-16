@@ -1,5 +1,4 @@
 import LeftCardLoginModalText from '../LeftCardLoginModalText/LeftCardLoginModalText'
-import OAuth from '../OAuth/OAuth.jsx'
 import LeftCardHero from '../LeftCardHero/LeftCardHero.jsx'
 import LeftCardCircle from '../LeftCardCircle/LeftCardCircle'
 import './LeftCard.css'
@@ -18,7 +17,7 @@ export default function LeftCard(){
                 </div>
                 <div className="left-card-rating-container">
                     <span className='rate-text'> 4.8k </span>
-                    <p className='rate-text'>Rating</p>
+                    <p className='rate-text'>Ratings</p>
                 </div>
                 <div className="left-card-rating-container">
                     <span className='rate-text'>120+</span>

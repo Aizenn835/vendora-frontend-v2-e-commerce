@@ -1,9 +1,9 @@
 .right-card-container{
     width: 100%;
     height: 100vh;
+    background-color: var(--color-bg);
 }
 .right-card-inner-container{
-    border:1px solid black;
     height: 100vh;
     display:flex;
     align-items: center;
@@ -42,4 +42,19 @@
 .auth-supporting-text{
     color: var(--color-supporting-text);
     font-size:0.9285rem;
+}
+/* footer */
+.footer-text-right-card{
+    margin-top:12px;
+    color:var(--color-supporting-text);
+    font-size:0.86rem;
+}
+.footer-bold-text{
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-left:5px;
+    cursor: pointer;
+}
+.footer-bold-text:hover{
+    text-decoration: underline;
 }

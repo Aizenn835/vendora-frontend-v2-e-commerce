@@ -1,4 +1,5 @@
 import FormLogin from '../FormLogin/FormLogin.jsx'
+import FormSignUp from '../FormLogin/FormSignUp.jsx'
 import OAuth from '../OAuth/OAuth.jsx'
 import { useState } from 'react'
 import './RightCard.css'
@@ -12,7 +13,6 @@ export default function RightCard(){
         login: {
             header: "Welcome back" ,
             supportingHeader: "Sign in to your account to continue." ,
-            checkboxText : "Remember me for 30 days",
             buttonText : "Sign in",
             separatorText : "or continue with" ,
             footerText : "Don't have an account?",
@@ -21,12 +21,6 @@ export default function RightCard(){
         signUp: {
             header: "Create account",
             supportingHeader: "It's free and only takes a minute.",
-            checkboxText:{
-                firstText: "I agree to the",
-                secondText: "Terms of Service",
-                thirdText: "and",
-                fourthText: "Privacy Policy"
-            },
             buttonText: "Create Account",
             separatorText: "or sign up with",
             footerText: "Already have an account?",
@@ -43,13 +37,22 @@ export default function RightCard(){
                     <h1 className='auth-header'>{current.header}</h1>
                     <p className='auth-supporting-text'>{current.supportingHeader}</p>
                 </div>
-                <FormLogin checkboxText={current.checkboxText} buttonText={current.buttonText}/>
+                {activeForm === "login" ? 
+                 <FormLogin buttonText={current.buttonText}/> :
+                 <FormSignUp buttonText={current.buttonText} />
+                }
                 <div className="separator-container">
                     <div className="separator-login"></div>
                     <span className='separator-text'>{current.separatorText}</span>
                     <div className="separator-login"></div>
                 </div>
                 <OAuth />
+                <footer className="sign-create-option">
+                    <p className='footer-text-right-card'>
+                        {current.footerText} 
+                        <span className='footer-bold-text' onClick={() => setActiveForm(activeForm === "login" ? "signUp" : "login")}>{current.underlineText}</span>
+                    </p>
+                </footer>
             </div>
         </div>
     );

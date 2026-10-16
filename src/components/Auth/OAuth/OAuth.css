@@ -21,7 +21,7 @@
 }
 .oauth-facebook-text{
     color: var(--color-bg);
-    font-size:0.895rem;
+    font-size:0.8025rem;
     font-weight: 490;
 }
 .google{
@@ -30,6 +30,6 @@
 }
 .oauth-google-text{
     color:rgb(61, 60, 60);
-    font-size:0.9285rem;
+    font-size:0.8025rem;
     font-weight: 490;
 }
