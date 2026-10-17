@@ -33,3 +33,9 @@
     font-size:0.8025rem;
     font-weight: 490;
 }
+@media (max-width: 1280px){
+    .oauth-facebook-text{
+        width: 100%;
+        max-width: 100px;
+    }
+}

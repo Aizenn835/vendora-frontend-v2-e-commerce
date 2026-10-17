@@ -1,7 +1,11 @@
-import { IconEye , IconEyeOff , IconCircleDashedCheck , IconCircleX , IconCircleCheck} from '@tabler/icons-react';
-import { validateEmail , validateName } from '../../../utils/validator';
+import { IconEye , IconEyeOff , IconCircleDashedCheck , IconCircleX , IconCircleCheck} from '@tabler/icons-react'
+import LoadingAnimation from '../../shared/LoadingAnimation/LoadingAnimation'
+import { validateEmail , validateName } from '../../../utils/validator'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { signUp } from '../../../api/auth'
 import '../../shared/FormLogin.css'
-import { useState } from 'react';
+import toast from 'react-hot-toast'
 
 export default function FormSignUp({buttonText}){
     const [isPasswordShown , setIsPasswordShown] = useState(false);
@@ -18,11 +22,50 @@ export default function FormSignUp({buttonText}){
     const password = passwordInput.trim();
     const hasMinLength = password.length >= 8;
     const hasNumberOrSymbol = /[0-9!@#$%^&*(),.?":{}|<>]/.test(password);
-    
 
+    const [error , setError] = useState("");
+    const [isLoading , setIsLoading] = useState(false);
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if(!isEmailValid || !isFirstNameValid || !isLastNameValid || !hasMinLength || !hasNumberOrSymbol){
+            const message = "Invalid input. Please check the requirements and try again.";
+            setError(message);
+            toast.error(message);
+            console.log(error);
+            return;
+        }
+
+        setIsLoading(true);
+
+        try {
+           const response = await signUp({firstname: firstnameInput.trim(),
+                                          lastname: lastnameInput.trim(),
+                                          email: emailInput.trim(),
+                                          password: password
+           });
+           localStorage.setItem("Token", response.data.token);
+           toast.success("Account successfully created.");
+           setTimeout(() => {
+            navigate("/");
+           }, 500);
+        } catch (err) {
+            const message = err.response?.data?.message || "Registration failed. Please try again.";
+            console.log(err.response?.status);
+            console.log(err.response?.data);
+            console.log(err.message);
+            setError(message);
+            toast.error(message);
+        } finally {
+            setIsLoading(false);
+        }
+    }
 
     return(
-        <form className='auth-form'>
+        <form className='auth-form' onSubmit={handleSubmit}>
             <div className="form-box">
                 <div className="grid-form">
                     <p className='form-text'>First name</p>
@@ -80,7 +123,9 @@ export default function FormSignUp({buttonText}){
                     </div>
                 </div>
             </div>
-            <button className="submit-form">{buttonText}</button>
+            <button className="submit-form" type='submit' disabled={isLoading}>
+                {isLoading ? <LoadingAnimation /> : buttonText }
+            </button>
         </form>
     );
 }
