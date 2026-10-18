@@ -1,9 +1,10 @@
 :root {
-  --color-primary: #10203f;
+  --color-primary: #1d291f;
+  --color-secondary: #c9a227;
   --color-supporting-text:rgb(133, 128, 128);
-  --color-primary-hover: #1d3566;
+  --color-primary-hover: #1f661d;
   --color-accent: #c9a227;
-  --color-bg: #f6f8fb;
+  --color-bg: #faf8f5;
   --color-surface: #ffffff;
   --color-text: #0f1a2e;
   --color-muted: #5f6b7a;
@@ -11,11 +12,15 @@
   --color-success: #2e7d52;
   --color-error: #c62828;
   --color-warning: #b26a00;
-
+  --color-border: rgb(224, 218, 218);
 }
 *{
    margin:0;
    padding:0;
    box-sizing: border-box;
    font-family: 'DM Sans' , 'Plus Jakarta Sans';
+   -webkit-tap-highlight-color:transparent
+}
+body{
+  background-color: var(--color-bg);
 }

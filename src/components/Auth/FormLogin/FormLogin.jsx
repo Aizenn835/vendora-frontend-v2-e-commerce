@@ -1,7 +1,10 @@
-import { IconEye , IconEyeOff , IconCircleDashedCheck , IconCircleX , IconCircleCheck} from '@tabler/icons-react';
-import { validateEmail } from '../../../utils/validator';
+import { IconEye , IconEyeOff , IconCircleDashedCheck , IconCircleX , IconCircleCheck} from '@tabler/icons-react'
+import { login } from '../../../api/auth'
+import { validateEmail } from '../../../utils/validator'
 import '../../shared/FormLogin.css'
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
+import { useState } from 'react'
 
 
 export default function FormLogin({buttonText}){
@@ -9,15 +12,52 @@ export default function FormLogin({buttonText}){
     const [emailInput , setEmailInput] = useState("");
     const [passwordInput , setPasswordInput] = useState("");
 
-    const isEmailValid = validateEmail(emailInput.trim());
+    const email = emailInput.trim();
+
+    const isEmailValid = validateEmail(email);
     const password = passwordInput.trim();
 
     const hasMinLength = password.length >= 8;
     const hasNumberOrSymbol = /[0-9!@#$%^&*(),.?":{}|<>]/.test(password);
 
+    const [isLoading , setIsLoading] = useState(false);
+    const navigate = useNavigate();
+
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+        if(isLoading) return;
+
+        if( !isEmailValid || !hasMinLength || !hasNumberOrSymbol){
+            const message = "Invalid input. Please check the requirements and try again.";
+            toast.error(message);
+            return;
+        }
+
+        try {
+            const response = await login({
+                email: email,
+                password: passwordInput
+            });
+            const token = response.data?.token;
+            if(token){localStorage.setItem('Token' , token);}
+            
+            navigate("/");
+            toast.success("Account successfully created.");
+        } catch(err) {
+            const message = err.response?.data?.message ?? "Registration failed. Please try again.";
+            toast.error(message);
+        } finally {
+            setIsLoading(false);
+        }
+
+    }
+
+
 
     return(
-        <form className='auth-form'>
+        <form className='auth-form' onSubmit={handleLogin}>
             <div className="form">
                 <p className='form-text'>Email Address</p>
                 <div className="inner-input-container">
@@ -53,7 +93,7 @@ export default function FormLogin({buttonText}){
                     </div>
                 </div>
             </div>
-            <button className="submit-form">{buttonText}</button>
+            <button className="submit-form" type='submit'>{buttonText}</button>
         </form>
     );
 }

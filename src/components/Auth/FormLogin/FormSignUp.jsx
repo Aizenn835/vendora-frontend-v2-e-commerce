@@ -19,23 +19,20 @@ export default function FormSignUp({buttonText}){
     const isFirstNameValid = validateName(firstnameInput.trim());
     const isLastNameValid = validateName(lastnameInput.trim());
 
-    const password = passwordInput.trim();
-    const hasMinLength = password.length >= 8;
-    const hasNumberOrSymbol = /[0-9!@#$%^&*(),.?":{}|<>]/.test(password);
+    const hasMinLength = passwordInput.length >= 8;
+    const hasNumberOrSymbol = /[0-9!@#$%^&*(),.?":{}|<>]/.test(passwordInput);
 
-    const [error , setError] = useState("");
     const [isLoading , setIsLoading] = useState(false);
-
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if(isLoading) return;
+
         if(!isEmailValid || !isFirstNameValid || !isLastNameValid || !hasMinLength || !hasNumberOrSymbol){
             const message = "Invalid input. Please check the requirements and try again.";
-            setError(message);
             toast.error(message);
-            console.log(error);
             return;
         }
 
@@ -45,19 +42,17 @@ export default function FormSignUp({buttonText}){
            const response = await signUp({firstname: firstnameInput.trim(),
                                           lastname: lastnameInput.trim(),
                                           email: emailInput.trim(),
-                                          password: password
+                                          password: passwordInput
            });
-           localStorage.setItem("Token", response.data.token);
+
+           const token = response.data?.token;
+           if(token){localStorage.setItem('Token', token);}
+           
            toast.success("Account successfully created.");
-           setTimeout(() => {
-            navigate("/");
-           }, 500);
+           navigate("/");
+      
         } catch (err) {
             const message = err.response?.data?.message || "Registration failed. Please try again.";
-            console.log(err.response?.status);
-            console.log(err.response?.data);
-            console.log(err.message);
-            setError(message);
             toast.error(message);
         } finally {
             setIsLoading(false);
@@ -70,7 +65,7 @@ export default function FormSignUp({buttonText}){
                 <div className="grid-form">
                     <p className='form-text'>First name</p>
                     <div className="inner-input-container">
-                        <input type="text" placeholder='juan' className='grid-form-input' onChange={(e) => setFirstnameInput(e.target.value)}/>
+                        <input type="text" placeholder='juan' required className='grid-form-input' onChange={(e) => setFirstnameInput(e.target.value)}/>
                         {firstnameInput.trim().length > 0 && (
                          isFirstNameValid ? 
                         (<IconCircleDashedCheck stroke={2} size={18} className='valid'/>) : 
@@ -80,7 +75,7 @@ export default function FormSignUp({buttonText}){
                 <div className="grid-form">
                     <p className='form-text'>Last name</p>
                     <div className="inner-input-container">
-                        <input type="text" placeholder='cruz' className='grid-form-input' onChange={(e) => setLastnameInput(e.target.value)}/>
+                        <input type="text" placeholder='cruz' required className='grid-form-input' onChange={(e) => setLastnameInput(e.target.value)}/>
                         {lastnameInput.trim().length > 0 &&(
                          isLastNameValid ? 
                         (<IconCircleDashedCheck stroke={2} size={18} className='valid'/>) : 
@@ -91,7 +86,7 @@ export default function FormSignUp({buttonText}){
             <div className="form">
                 <p className='form-text'>Email Address</p>
                 <div className="inner-input-container">
-                    <input type="text" placeholder='juan@example.com' className='email-input' onChange={(e) => setEmailInput(e.target.value)}/>
+                    <input type="text" placeholder='juan@example.com' required className='email-input' onChange={(e) => setEmailInput(e.target.value)}/>
                     {emailInput.trim().length > 0 && (
                         isEmailValid ? 
                         (<IconCircleDashedCheck stroke={2} size={18} className='valid'/>) : 
@@ -105,7 +100,7 @@ export default function FormSignUp({buttonText}){
                     <a href='' className='forgot-password'>Forgot Password?</a>
                 </div>
                 <div className="inner-input-container">
-                    <input type={isPasswordShown ? "text" : "password"} placeholder='Min. 8 characters' onChange={(e) => setPasswordInput(e.target.value)}/>
+                    <input type={isPasswordShown ? "text" : "password"} required placeholder='Min. 8 characters' onChange={(e) => setPasswordInput(e.target.value)}/>
                    
                     {isPasswordShown ? 
                     <IconEye stroke={2} size={18} onClick={() => setIsPasswordShown(false)} className='svg-log-in'/> : 
