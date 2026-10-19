@@ -2,24 +2,8 @@
     border-bottom: 1px solid var(--color-border);
     position: sticky;
     top: 0;       
-    z-index: 5000;
+    z-index: 1000;
 }
-/* upper-header */
-.upper-header{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-primary);
-}
-.upper-header-text{
-    color:var(--color-surface);
-    font-weight: 500;
-    font-size:0.75rem;
-    padding:5px 7px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
 /* lower-header */
 .lower-header{
     display:flex;
@@ -31,11 +15,12 @@
 .home-header-logo{
     font-size:1.50rem;
     color: var(--color-primary);
+    margin-left:50px;
 }
 .list-container{
     width: 100%;
     max-width: 500px;
-    margin-left:175px;
+    margin-left:145px;
 }
 .inner-list{
     display:flex;
