@@ -3,6 +3,7 @@
     position: sticky;
     top: 0;       
     z-index: 1000;
+    background-color: var(--color-bg);
 }
 /* lower-header */
 .lower-header{
@@ -127,4 +128,29 @@
         display:none;
     }
     
+}
+@media (max-width: 1024px) {
+    .list-container{
+        display:none;
+    }
+    .lower-header{
+        justify-content: space-between;
+    }
+    .home-header-clickable{
+        justify-content: flex-end;
+        gap:12px;
+        max-width: 50px;
+    }
+    .home-header-clickable .remove-if-mobile{
+        display:none;
+    }
+    .mobile-view{
+        display:flex;
+    }
+    .upper-header{
+        display:none;
+    }
+    .home-header-logo{
+        margin:0;
+    }
 }
