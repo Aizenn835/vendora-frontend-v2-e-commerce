@@ -6,7 +6,6 @@ export default function HomeHeader({onMenuClick}){
 
     return(
         <div className="home-header-container">
-            
             <div className="lower-header">
                 <IconMenu2 stroke={2} className='mobile-view' onClick={onMenuClick}/>
                 <h3 className='home-header-logo'>VENDORA</h3>

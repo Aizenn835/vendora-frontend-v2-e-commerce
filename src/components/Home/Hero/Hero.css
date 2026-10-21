@@ -4,17 +4,24 @@
     align-items: center;
     justify-content: space-between;
     min-height:480px;
+    flex-direction: column;
+}
+.welcome-container{
+    display:flex;
+    align-items: center;
+    width: 100%;
 }
 @media (max-width: 1024px){
     .inner-hero-home-container{
         margin: 20px 32px;
     }
 }
-
 @media (max-width: 768px){
     .inner-hero-home-container{
-        flex-direction: column;
         margin: 16px;
         min-height: auto;
+    }
+    .welcome-container{
+        flex-direction: column;
     }
 }
