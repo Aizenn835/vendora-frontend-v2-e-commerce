@@ -54,14 +54,12 @@ export default function FormLogin({buttonText}){
 
     }
 
-
-
     return(
         <form className='auth-form' onSubmit={handleLogin}>
             <div className="form">
                 <p className='form-text'>Email Address</p>
                 <div className="inner-input-container">
-                    <input type="text" placeholder='you@example.com' className='email-input' onChange={(e) => setEmailInput(e.target.value)}/>
+                    <input type="text" placeholder='you@example.com' required className='email-input' onChange={(e) => setEmailInput(e.target.value)}/>
                     {emailInput.length > 0 && (
                         isEmailValid ? 
                         (<IconCircleDashedCheck stroke={2} size={18} className='valid'/>) : 
@@ -75,7 +73,7 @@ export default function FormLogin({buttonText}){
                     <a href='' className='forgot-password'>Forgot Password?</a>
                 </div>
                 <div className="inner-input-container">
-                    <input type={isPasswordShown ? "text" : "password"} placeholder='Enter your password' onChange={(e) => setPasswordInput(e.target.value)}/>
+                    <input type={isPasswordShown ? "text" : "password"} required placeholder='Enter your password' onChange={(e) => setPasswordInput(e.target.value)}/>
                    
                     {isPasswordShown ? 
                     <IconEye stroke={2} size={18} onClick={() => setIsPasswordShown(false)} className='svg-log-in'/> : 

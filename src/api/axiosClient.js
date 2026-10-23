@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const TOKEN_KEY = "Token";
-const PUBLIC_PATHS = ["/api/user/register"];
+const PUBLIC_PATHS = ["/api/user/register" , "/api/auth/login"];
 
 const isPublic = (url) => PUBLIC_PATHS.some((paths) => url?.startsWith(paths))
 

@@ -1,4 +1,4 @@
-import { IconArrowNarrowRight } from '@tabler/icons-react';
+import ArrowLeft from '../../shared/ArrowLeft/ArrowLeft.jsx';
 import './Collection.css'
 
 export default function Collection(){
@@ -14,9 +14,7 @@ export default function Collection(){
              </div>
              <button className="shop-collection">
                 <p>Shop the collection</p>
-                <div className="arrow-left-container">
-                    <IconArrowNarrowRight stroke={1.75} size={20}/>
-                </div>
+                <ArrowLeft subClass={"arrow-left-container-collection"}/>
              </button>
              <footer className='footer-collection'>
                 <a href="#">Want to sell? Open your shop</a>

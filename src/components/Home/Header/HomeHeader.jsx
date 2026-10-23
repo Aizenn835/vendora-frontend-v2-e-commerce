@@ -1,8 +1,10 @@
 import { IconSearch , IconShoppingBag , IconMenu2 } from '@tabler/icons-react';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './HomeHeader.css'
 
 export default function HomeHeader({onMenuClick}){
+
+    const navigate = useNavigate();
 
     return(
         <div className="home-header-container">
@@ -20,7 +22,7 @@ export default function HomeHeader({onMenuClick}){
                 <div className="home-header-clickable">
                     <IconSearch stroke={2} size={20} className='remove-if-mobile'/>
                     <IconShoppingBag stroke={2} size={20} className='remove-if-mobile'/>
-                    <button className="auth-btn">Log in</button>
+                    <button className="auth-btn" onClick={() => {navigate('/login')}}>Log in</button>
                 </div> 
             </div>
         </div>

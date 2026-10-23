@@ -79,9 +79,6 @@
     color:gray;
     font-size:0.75rem;
 }
-.password-footer-container.invalid-password{
-    color:rgb(236, 48, 48);
-}
 .password-footer-container.accepted p{
     color:rgb(31, 157, 31);
 }
