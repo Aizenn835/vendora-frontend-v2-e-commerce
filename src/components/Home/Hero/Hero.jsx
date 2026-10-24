@@ -1,6 +1,7 @@
 import Explore from '../Explore/Explore.jsx'
 import Collection from '../Collection/Collection.jsx'
 import HeroImage from '../HeroImage/HeroImage.jsx'
+import ProductGrid from '../ProductGrid/ProductGrid.jsx'
 import './Hero.css'
 
 export default function Hero(){
@@ -13,6 +14,7 @@ export default function Hero(){
                 </div>
                 <Explore />
             </div>
+            <ProductGrid />
         </div>
     );
 }

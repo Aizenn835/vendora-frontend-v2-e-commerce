@@ -13,6 +13,7 @@
   --color-error: #c62828;
   --color-warning: #b26a00;
   --color-border: rgb(224, 218, 218);
+  --color-product-grid:#F1EBE2;
 }
 *{
    margin:0;
