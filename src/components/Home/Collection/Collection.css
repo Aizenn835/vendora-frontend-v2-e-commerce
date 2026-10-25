@@ -71,7 +71,7 @@
     font-weight: 600;
     letter-spacing: 0.3px;
 }
-.shop-collection:hover .arrow-left-container{
+.shop-collection:hover .arrow-left-container-collection{
     transform: translateX(15%);
 }
 .footer-collection a{

@@ -1,3 +1,4 @@
+
 .inner-hero-home-container{
     margin:20px 70px;
     display:flex;
@@ -24,4 +25,5 @@
     .welcome-container{
         flex-direction: column;
     }
+
 }

@@ -119,4 +119,8 @@
     .product-grid-footer{
         display:none;
     }
+    .add-to-cart{
+        transform: translateY(0%);
+        opacity: 1;
+    }
 }
