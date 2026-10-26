@@ -3,6 +3,7 @@ import Collection from '../Collection/Collection.jsx'
 import HeroImage from '../HeroImage/HeroImage.jsx'
 import ProductGrid from '../ProductGrid/ProductGrid.jsx'
 import MakersBlock from '../MakersBlock/MakersBlock.jsx'
+import Footer from '../Footer/Footer.jsx'
 import GetToKnowMore from '../GetToKnowMore/GetToKnowMore.jsx'
 import './Hero.css'
 
@@ -19,6 +20,7 @@ export default function Hero(){
             <ProductGrid />
             <MakersBlock />
             <GetToKnowMore />
+            <Footer />
         </div>
     );
 }

@@ -19,8 +19,8 @@ export default function Explore(){
                 </div>
                 <div className="explore-image-container">
                     <ExploreImage image={Wear} alt={"Everyday wear image"} text={"The everyday fit"} supportingText={"24 Pieces"}/>
-                    <ExploreImage  image={Accessories} alt={"Accessories wear image"} text={"Quiet Accessories"} supportingText={"18 Pieces"}/>
-                    <ExploreImage  image={HomeProduct} alt={"Home product image"} text={"Object for home"} supportingText={"16 Pieces"}/>
+                    <ExploreImage image={Accessories} alt={"Accessories wear image"} text={"Quiet Accessories"} supportingText={"18 Pieces"} />
+                    <ExploreImage image={HomeProduct} alt={"Home product image"} text={"Object for home"} supportingText={"16 Pieces"}/>
                 </div>
             </div>
         </div>
