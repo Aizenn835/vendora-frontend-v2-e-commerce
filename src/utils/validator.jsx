@@ -19,3 +19,7 @@ export function validateName(value) {
 
     return true;
 }
+export function validateToken(){
+    const token = localStorage.getItem("Token");
+    return !!token;
+}

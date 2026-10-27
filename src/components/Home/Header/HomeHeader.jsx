@@ -1,10 +1,13 @@
-import { IconSearch , IconShoppingBag , IconMenu2 } from '@tabler/icons-react';
-import { useNavigate } from 'react-router-dom';
+import { IconSearch , IconShoppingBag , IconMenu2 , IconUser } from '@tabler/icons-react';
+import {validateToken} from '../../../utils/validator.jsx'
+import { useNavigate} from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import './HomeHeader.css'
 
 export default function HomeHeader({onMenuClick}){
 
     const navigate = useNavigate();
+    const [isLogin , setIsLogin] = useState(validateToken());
 
     return(
         <div className="home-header-container">
@@ -22,7 +25,9 @@ export default function HomeHeader({onMenuClick}){
                 <div className="home-header-clickable">
                     <IconSearch stroke={2} size={20} className='remove-if-mobile'/>
                     <IconShoppingBag stroke={2} size={20} className='remove-if-mobile'/>
-                    <button className="auth-btn" onClick={() => {navigate('/login')}}>Log in</button>
+                    {isLogin ?
+                        <IconUser stroke={2} size={20} className={`${isLogin ? 'clickable-user-icon' : ''}`}/> : 
+                        <button className="auth-btn" onClick={() => {navigate('/login')}}>Log in</button>} 
                 </div> 
             </div>
         </div>

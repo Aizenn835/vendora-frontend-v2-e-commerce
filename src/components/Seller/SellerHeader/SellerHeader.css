@@ -1,0 +1,12 @@
+.seller-header-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:15px 17px;
+    border-bottom: 1px solid var(--color-border);
+
+}
+.seller-header-container h3{
+    font-size:1.50rem;
+    color: var(--color-primary);
+}

@@ -74,10 +74,14 @@
 .shop-collection:hover .arrow-left-container-collection{
     transform: translateX(15%);
 }
-.footer-collection a{
+.footer-collection button{
     margin-left:10px;
     font-size:0.80rem;
     color: var(--color-primary);
+    border:none;
+    background-color: #cfd3bd;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 @media (max-width: 768px){
