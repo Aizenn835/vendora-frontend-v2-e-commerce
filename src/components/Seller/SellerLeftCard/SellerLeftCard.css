@@ -8,9 +8,11 @@
 .seller-left-card-inner-container{
     position: relative;
     z-index: 1;
-    padding:50px 70px;
-    box-sizing: border-box;
+    padding:100px 70px;
     height: 100%;
+    display:flex;
+    flex-direction: column;
+    gap:5%;
 }
 .seller-eyebrow-card-container{
     display:flex;
@@ -18,9 +20,69 @@
     justify-content: center;
     padding:10px 12px;
     width: 100%;
-    max-width: 140px;
+    max-width: 150px;
     background-color: var(--color-secondary);
     color:#ffffff;
     border-radius: 20px;
+    font-size:0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
     gap:5px;
+}
+
+.eye-card-container p{
+    color:#ffffff;
+    font-size:4rem;
+    font-weight: 600;
+}
+.eye-card-container span{
+    color:rgb(180, 216, 173);
+    font-size:4rem;
+    font-weight: 600;
+    letter-spacing: normal;
+}
+.nose-card-container p{
+    max-width: 450px;
+    color: var(--color-supporting-text);
+    font-weight: 500;
+}
+
+/* Three card container */
+.seller-left-three-card-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:12px;
+    margin-top:60px;
+}
+.three-card-inner-container{
+    display:flex;
+    align-items: center;
+    gap:12px;
+    padding:10px 12px;
+    border-radius: 12px;
+    background-color: rgb(62, 85, 57);;
+}
+.three-card-inner-container svg{
+    background-color: var(--color-secondary);
+    color:#ffffff;
+    flex-shrink: 0;
+    padding:5px 7px;
+    width: 35px;
+    height: 35px;
+    border-radius: 12px;
+}
+.primary-text-card-seller{
+    color:#ffffff;
+    font-size:0.9275rem;
+}
+.secondary-text-card-seller{
+    color:rgb(198, 206, 198);
+    font-size:0.82rem;
+    font-weight: 400;
+}
+.footer-seller-left-card{
+    margin-top:60px;
+    font-size:0.82rem;
+    color:rgb(151, 155, 151);
 }

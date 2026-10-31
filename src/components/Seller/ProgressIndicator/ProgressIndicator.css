@@ -1,0 +1,25 @@
+.progress-indicator-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+    cursor: pointer;
+    user-select: none;
+}
+.progress-indicator-count{
+    color: #ffffff;
+    font-size:0.75rem;
+    padding:5px 7px;
+    background-color: var(--color-primary);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.progress-indicator-text{
+    color:var(--color-supporting-text);
+    font-size:0.895rem;
+    font-weight: 500;
+}

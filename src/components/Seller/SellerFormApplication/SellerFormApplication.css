@@ -3,3 +3,48 @@
     width: 100%;
     z-index: 3000;
 }
+.seller-form-application-inner-container{
+    position: relative;
+    z-index: 1;
+    padding:80px 70px;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    gap:5%;
+}
+.header-seller-form{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+}
+.seller-form-supporting-primary-text{
+    color:var(--color-secondary);
+    font-weight: 600;
+}
+.seller-form-primary-text{
+    font-size:2.50rem;
+    letter-spacing: 0.3px;
+    font-weight: bold;
+}
+.seller-form-supporting-text{
+    color:rgb(130, 133, 130);
+    font-size:0.9285rem;
+}
+
+/* progress indicator */
+.progress-indicator-container-seller-form{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:12px;
+}
+.divider-seller-form{
+    height: 1px;
+    background-color: rgb(219, 214, 214);
+    flex-grow: 1;
+}
+/* Targets the text inside the VERY FIRST ProgressIndicator component */
+.progress-indicator-container-seller-form > :first-child p {
+  color: var(--color-primary); 
+  font-weight: 600; 
+}

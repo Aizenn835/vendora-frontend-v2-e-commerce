@@ -1,7 +1,7 @@
 import { IconSearch , IconShoppingBag , IconMenu2 , IconUser } from '@tabler/icons-react';
 import {validateToken} from '../../../utils/validator.jsx'
-import { useNavigate} from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useNavigate} from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import './HomeHeader.css'
 
 export default function HomeHeader({onMenuClick}){
