@@ -8,7 +8,6 @@ export default function SellerHeader(){
     const [isSignUp , setIsSignUp] = useState(validateToken);
     const navigate = useNavigate();
 
-
     return(
         <div className="seller-header-container">
             <div className="seller-header-inner-container">
@@ -22,7 +21,7 @@ export default function SellerHeader(){
                      : 
                     <>
                         <p className='sign-in-seller-header-text'>Already selling with us?</p>
-                        <button className='sign-in-btn-seller-header' onClick={() => {navigate('/login')}}>Sign in</button>
+                        <button className='sign-in-btn-seller-header' onClick={() => navigate('/login' , {state: {targetForm: 'signUp'}})}>Sign in</button>
                     </>
                     }
                 </div>

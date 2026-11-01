@@ -2,12 +2,15 @@ import FormLogin from '../FormLogin/FormLogin.jsx'
 import FormSignUp from '../FormLogin/FormSignUp.jsx'
 import OAuth from '../OAuth/OAuth.jsx'
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import './RightCard.css'
 
 
 export default function RightCard(){
-
-    const [activeForm , setActiveForm] = useState("login");
+    const location = useLocation();
+    
+    const currentForm = location.state?.targetForm || 'login';
+    const [activeForm , setActiveForm] = useState(currentForm);
 
     const formContent = {
         login: {
