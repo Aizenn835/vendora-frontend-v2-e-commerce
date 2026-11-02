@@ -51,92 +51,10 @@
 }
 
 /* seller form input */
-.form-seller-form-container{
-    background-color: #fff;
-    padding:20px 22px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 30px;
-}
-.seller-form-header{
-    display:flex;
-    flex-direction: column;
-    gap:5px;
-    margin-bottom: 30px;
-}
-.seller-form-header p{
-    color:rgb(130, 133, 130);
-}
-.primary-seller-form-header-text-container{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.primary-seller-form-header-text-container h3{
-    font-size:1.80rem;
-    font-weight: bold;
-}
-.primary-seller-form-header-text-container span{
-    background-color: rgb(231, 226, 226);
-    padding:7px 9px;
-    color:rgb(88, 86, 86);
-    font-weight: 550;
-    font-size:0.80rem;
-    border-radius: 30px;
-}
-.form-grid-seller{
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    gap:12px;
-}
-.input-identifier-container{
-    display:flex;
-    flex-direction: column;
-    gap:5px;
-}
-.identifier-text{
-    color:rgb(27, 27, 27);
-    font-weight: 600;
-    font-size:0.9285rem;
-}
-.input-form-grid-seller{
-    width: 100%;
-    padding:15px 17px;
-    border:1px solid rgb(226, 223, 223);
-    border-radius: 15px;
-    outline:none;
-}
-.footer-divider-seller-form{
-    margin-top:20px;
-}
-.btn-container-seller-form{
-    width: 100%;
-    display:flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top:15px;
-}
-.inner-btn-container-seller-form{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-secondary);
-    padding:5px 20px;
-    border-radius: 30px;
+.footer-outside-form-container{
+    text-align: center;
+    color:rgb(122, 121, 121);
+    font-size:0.75rem;
 }
 
-.inner-btn-container-seller-form , 
-.inner-btn-container-seller-form svg ,
-.continue-btn-seller-form{
-    cursor: pointer;
-}
-.inner-btn-container-seller-form svg{
-    color:#fff;
-    flex-shrink: 0;
-}
-.continue-btn-seller-form{
-    padding:10px 12px;
-    border:none;
-    background: transparent;
-    color:#fff;
-}
 

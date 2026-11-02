@@ -1,6 +1,6 @@
 import { IconEye , IconEyeOff , IconCircleDashedCheck , IconCircleX , IconCircleCheck} from '@tabler/icons-react'
 import LoadingAnimation from '../../shared/LoadingAnimation/LoadingAnimation'
-import { validateEmail , validateName } from '../../../utils/validator'
+import { validateEmail , validateName } from '../../../utils/validator.jsx'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { signUp } from '../../../api/auth'
@@ -14,6 +14,7 @@ export default function FormSignUp({buttonText}){
     const [passwordInput , setPasswordInput] = useState("");
     const [firstnameInput , setFirstnameInput] = useState("");
     const [lastnameInput , setLastnameInput] = useState("");
+    const [error , setError] = useState(null); 
 
     const isEmailValid = validateEmail(emailInput.trim());
     const isFirstNameValid = validateName(firstnameInput.trim());
@@ -30,7 +31,7 @@ export default function FormSignUp({buttonText}){
 
         if(isLoading) return;
 
-        if(!isEmailValid || !isFirstNameValid || !isLastNameValid || !hasMinLength || !hasNumberOrSymbol){
+        if(!isEmailValid || !isFirstNameValid || !isLastNameValid || !hasMinLength || !hasNumberOrSymbol || error === 400){
             const message = "Invalid input. Please check the requirements and try again.";
             toast.error(message);
             return;
@@ -53,6 +54,7 @@ export default function FormSignUp({buttonText}){
       
         } catch (err) {
             const message = err.response?.data?.message || "Registration failed. Please try again.";
+            setError(err.response.status);
             toast.error(message);
         } finally {
             setIsLoading(false);

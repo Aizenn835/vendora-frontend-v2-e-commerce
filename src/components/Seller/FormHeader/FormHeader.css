@@ -1,0 +1,27 @@
+.seller-form-header{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+    margin-bottom: 30px;
+}
+.seller-form-header p{
+    color:rgb(130, 133, 130);
+    font-size:0.825rem;
+}
+.primary-seller-form-header-text-container{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.primary-seller-form-header-text-container h3{
+    font-size:1.80rem;
+    font-weight: bold;
+}
+.primary-seller-form-header-text-container span{
+    background-color: rgb(231, 226, 226);
+    padding:7px 9px;
+    color:rgb(88, 86, 86);
+    font-weight: 550;
+    font-size:0.80rem;
+    border-radius: 30px;
+}

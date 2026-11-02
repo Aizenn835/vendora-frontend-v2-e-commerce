@@ -1,0 +1,17 @@
+.input-identifier-container{
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+}
+.identifier-text{
+    color:rgb(27, 27, 27);
+    font-weight: 600;
+    font-size:0.9285rem;
+}
+.input-form-grid-seller{
+    width: 100%;
+    padding:15px 17px;
+    border:1px solid rgb(226, 223, 223);
+    border-radius: 15px;
+    outline:none;
+}
