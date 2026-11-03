@@ -1,10 +1,41 @@
 import ProgressIndicator from '../ProgressIndicator/ProgressIndicator'
 import SellerBusinessInfo from '../SellerBusinessInfo/SellerBusinessInfo.jsx'
+import AboutYourShop from '../AboutYourShop/AboutYourShop.jsx';
 import './SellerFormApplication.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+const forms = [
+    {key: "businessInfo" , label: "Your business"},
+    {key: "aboutYourShop" , label: "Shop Details"},
+    {key: "reviewInfo" , label: "Review"}
+];
+
+const getSavedForm = () => {
+    const saved = Number(localStorage.getItem("sellerFormStep"));
+    return Number.isInteger(saved) && saved >= 0 && saved < forms.length ? saved : 0;
+};
 
 export default function SellerFormApplication(){
-    
+
+    const [currentForm , setCurrentForm] = useState(getSavedForm);
+
+    useEffect(() => {
+        localStorage.setItem("sellerFormStep" , currentForm);
+    }, [currentForm]);
+
+    const goNext = () => setCurrentForm((prev) => Math.min(prev + 1 , forms.length - 1));
+    const goBack = () => setCurrentForm((prev) => Math.max(prev - 1 , 0));
+
+    const renderForms = () => {
+        switch(forms[currentForm].key){
+            case "businessInfo":
+                return <SellerBusinessInfo onNext={goNext}/>
+            case "aboutYourShop":
+                return <AboutYourShop onNext={goNext} onBack={goBack}/>
+            default: 
+                return null;    
+        }
+    }
 
     return(
         <div className="seller-form-application-container">
@@ -21,7 +52,7 @@ export default function SellerFormApplication(){
                     <div className="divider-seller-form"></div>
                     <ProgressIndicator progressCount={3} text={"Review"}/>
                 </div>
-                <SellerBusinessInfo />
+                {renderForms()}
                 <footer className="footer-outside-form-container">
                     <span>Your information is private and never shared without your permission.</span>
                 </footer> 
