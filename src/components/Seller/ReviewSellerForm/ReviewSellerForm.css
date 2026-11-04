@@ -1,0 +1,10 @@
+.form-outer-container-review-seller{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.left-review-form-container{
+    display:flex;
+    flex-direction: column;
+    gap:3px;
+}

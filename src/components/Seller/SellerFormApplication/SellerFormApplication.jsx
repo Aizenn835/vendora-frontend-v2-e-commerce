@@ -1,6 +1,7 @@
 import ProgressIndicator from '../ProgressIndicator/ProgressIndicator'
 import SellerBusinessInfo from '../SellerBusinessInfo/SellerBusinessInfo.jsx'
 import AboutYourShop from '../AboutYourShop/AboutYourShop.jsx';
+import ReviewSellerInfo from '../ReviewSellerInfo/ReviewSellerInfo.jsx';
 import './SellerFormApplication.css'
 import { useState, useEffect } from 'react';
 
@@ -32,6 +33,8 @@ export default function SellerFormApplication(){
                 return <SellerBusinessInfo onNext={goNext}/>
             case "aboutYourShop":
                 return <AboutYourShop onNext={goNext} onBack={goBack}/>
+            case "reviewInfo":
+                return <ReviewSellerInfo />    
             default: 
                 return null;    
         }

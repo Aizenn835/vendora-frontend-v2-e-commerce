@@ -19,7 +19,7 @@ export default function AboutYourShop({onNext , onBack}) {
     const [descriptionText , setDescriptionText] = useState("");
 
     const handleDescription = (e) => {
-        setDescriptionText(e.target.value.slice(0, 100));
+        setDescriptionText(e.target.value.slice(0, 500));
     }
 
     const handleSubmit = (e) => {
@@ -50,7 +50,7 @@ export default function AboutYourShop({onNext , onBack}) {
                         <p className='identifier-text-about-your-shop'>Tell us your brand story</p>
                         <textarea required maxLength={100} value={descriptionText} placeholder={currentPlaceholder} className='description-input' onChange={handleDescription}/>
                     </div>
-                    <span className="counter-text-desc-about-your-shop">{descriptionText.length}/100</span>
+                    <span className="counter-text-desc-about-your-shop">{descriptionText.length}/500</span>
                     <div className="divider-about-your-shop"></div>
                     <div className="footer-btn-about-your-shop">
                         <button className="back-about-your-shop" type='button' onClick={onBack}>Back</button>
