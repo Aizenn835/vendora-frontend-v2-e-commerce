@@ -78,40 +78,33 @@
 
 /* footer buttons */
 .footer-btn-about-your-shop{
-    margin-top:12px;
     display:flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    margin-top:12px;
 }
 .back-about-your-shop{
-    border:none;
-    background-color: transparent;
-    color:gray;
-    font-weight: 550;
-}
-.footer-btn-continue-about-your-shop-container{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-secondary);
-    padding:5px 20px;
-    border-radius: 30px;
-}
-.footer-btn-continue-about-your-shop-container svg{
-    color:#fff;
-    flex-shrink: 0;
-}
-.footer-btn-continue-about-your-shop-container,
-.footer-btn-continue-about-your-shop-container svg,
-.continue-about-your-shop{
-    cursor: pointer;
-}
-
-.continue-about-your-shop{
     padding:10px 12px;
     border:none;
-    background: transparent;
+    background-color: transparent;
+    color:rgb(130, 133, 130);
+    font-weight: 600;
+    cursor: pointer;
+}
+.continue-about-your-shop{
+    background-color: var(--color-secondary);
+    border:none;
+    padding:15px 17px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    border-radius: 25px;
+    width: 150px;
+    gap:8px;
+    cursor: pointer;
+}
+.continue-about-your-shop svg{
     color:#fff;
 }
 

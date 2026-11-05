@@ -1,3 +1,15 @@
+.form-container{
+    border-bottom: 1px solid rgb(207, 211, 207);
+    padding:10px 12px;
+    margin:12px;
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+}
+.form-container:last-child{
+    border:none;
+    
+}
 .form-outer-container-review-seller{
     display:flex;
     justify-content: space-between;
@@ -7,4 +19,25 @@
     display:flex;
     flex-direction: column;
     gap:3px;
+}
+.form-container-header{
+    color:rgb(130, 133, 130);
+    font-weight: 550;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size:0.75rem;
+}
+.info-form-container-text{
+    font-size:0.80rem;
+    font-weight: 600;
+}
+.sub-info-form-container-text{
+    font-size:0.75rem;
+    color:rgb(130, 133, 130);
+}
+.right-edit-text-review-info{
+    color:var(--color-secondary);
+    font-size:0.85rem;
+    font-weight: 600;
+    align-self: flex-start;
 }

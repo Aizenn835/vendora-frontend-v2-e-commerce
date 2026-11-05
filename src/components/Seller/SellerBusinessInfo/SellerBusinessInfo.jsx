@@ -24,10 +24,10 @@ export default function SellerBusinessInfo({onNext}){
                     </div>
                     <div className="divider-seller-form footer-divider-seller-form"></div>
                     <div className="btn-container-seller-form">
-                        <div className="inner-btn-container-seller-form">
-                            <button type='submit' className="continue-btn-seller-form">Continue</button>
+                        <button className="continue-seller-business-info" type='submit'>
+                            <span className="continue-business-form-text" >Continue</span>
                             <IconArrowRight stroke={2} size={20} />
-                        </div>
+                        </button>
                     </div>
                 </form>   
             </div>

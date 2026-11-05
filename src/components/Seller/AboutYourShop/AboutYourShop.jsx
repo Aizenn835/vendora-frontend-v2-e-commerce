@@ -54,10 +54,10 @@ export default function AboutYourShop({onNext , onBack}) {
                     <div className="divider-about-your-shop"></div>
                     <div className="footer-btn-about-your-shop">
                         <button className="back-about-your-shop" type='button' onClick={onBack}>Back</button>
-                        <div className="footer-btn-continue-about-your-shop-container">
-                            <button className="continue-about-your-shop" type='submit'>Continue</button>
+                        <button className="continue-about-your-shop" type='submit'>
+                            <span className="continue-about-your-shop-text" >Continue</span>
                             <IconArrowRight stroke={2} size={20} />
-                        </div>
+                        </button>
                     </div>
                 </form>
             </div>
