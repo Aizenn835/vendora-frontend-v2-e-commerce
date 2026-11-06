@@ -6,41 +6,85 @@ import './SellerFormApplication.css'
 import { useState, useEffect } from 'react';
 
 const forms = [
-    {key: "businessInfo" , label: "Your business"},
-    {key: "aboutYourShop" , label: "Shop Details"},
-    {key: "reviewInfo" , label: "Review"}
+    { key: "businessInfo", label: "Your business" },
+    { key: "aboutYourShop", label: "Shop Details" },
+    { key: "reviewInfo", label: "Review" }
 ];
 
+const initialData = {
+    businessInfo: { email: "", phoneNumber: "", shopName: "" },
+    aboutYourShop: { sellerCategory: "", websiteLink: "", description: "" }
+}
+
 const getSavedForm = () => {
-    const saved = Number(localStorage.getItem("sellerFormStep"));
+    const saved = Number(sessionStorage.getItem("sellerFormStep"));
     return Number.isInteger(saved) && saved >= 0 && saved < forms.length ? saved : 0;
 };
 
-export default function SellerFormApplication(){
+const getSavedData = () => {
+    try {
+        const saved = sessionStorage.getItem("sellerFormData");
+        return saved ? JSON.parse(saved) : initialData;
+    } catch {
+        return initialData;
+    }
+};
 
-    const [currentForm , setCurrentForm] = useState(getSavedForm);
+export default function SellerFormApplication() {
+
+    const [currentForm, setCurrentForm] = useState(getSavedForm);
+    const [data, setData] = useState(getSavedData);
 
     useEffect(() => {
-        localStorage.setItem("sellerFormStep" , currentForm);
+        sessionStorage.setItem("sellerFormStep", currentForm);
     }, [currentForm]);
 
-    const goNext = () => setCurrentForm((prev) => Math.min(prev + 1 , forms.length - 1));
-    const goBack = () => setCurrentForm((prev) => Math.max(prev - 1 , 0));
+    useEffect(() => {
+        sessionStorage.setItem("sellerFormData", JSON.stringify(data));
+    }, [data]);
+
+    const update = (section, values) => {
+        setData((prev) => ({
+            ...prev,
+            [section]: { ...prev[section], ...values }
+        }));
+    }
+
+    const goNext = () => setCurrentForm((prev) => Math.min(prev + 1, forms.length - 1));
+    const goBack = () => setCurrentForm((prev) => Math.max(prev - 1, 0));
+
+    const clearApplication = () => {
+        setData(initialData);
+        setCurrentForm(0);
+    }
 
     const renderForms = () => {
-        switch(forms[currentForm].key){
+        switch (forms[currentForm].key) {
             case "businessInfo":
-                return <SellerBusinessInfo onNext={goNext}/>
+                return <SellerBusinessInfo
+                    data={data.businessInfo}
+                    onNext={goNext}
+                    onSave={(values) => update("businessInfo", values)}
+                />
             case "aboutYourShop":
-                return <AboutYourShop onNext={goNext} onBack={goBack}/>
+                return <AboutYourShop
+                    data={data.aboutYourShop}
+                    onNext={goNext}
+                    onBack={goBack}
+                    onSave={(values) => update("aboutYourShop", values)}
+                />
             case "reviewInfo":
-                return <ReviewSellerInfo />    
-            default: 
-                return null;    
+                return <ReviewSellerInfo
+                    data={data}
+                    onBack={goBack}
+                    onSuccess={clearApplication}
+                />
+            default:
+                return null;
         }
     }
 
-    return(
+    return (
         <div className="seller-form-application-container">
             <div className="seller-form-application-inner-container">
                 <div className="header-seller-form">
@@ -51,14 +95,14 @@ export default function SellerFormApplication(){
                 <div className="progress-indicator-container-seller-form">
                     <ProgressIndicator progressCount={1} text={"Your business"} />
                     <div className="divider-seller-form"></div>
-                    <ProgressIndicator progressCount={2} text={"Shop details"}/>
+                    <ProgressIndicator progressCount={2} text={"Shop details"} />
                     <div className="divider-seller-form"></div>
-                    <ProgressIndicator progressCount={3} text={"Review"}/>
+                    <ProgressIndicator progressCount={3} text={"Review"} />
                 </div>
                 {renderForms()}
                 <footer className="footer-outside-form-container">
                     <span>Your information is private and never shared without your permission.</span>
-                </footer> 
+                </footer>
             </div>
         </div>
     );

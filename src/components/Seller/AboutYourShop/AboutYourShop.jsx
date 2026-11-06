@@ -3,6 +3,7 @@ import FormHeader from '../FormHeader/FormHeader'
 import SellerFormInput from '../SellerFormInput/SellerFormInput'
 import { IconArrowRight } from '@tabler/icons-react'
 import { useState } from 'react'
+import { sellerCategories } from '../../shared/SellerCategories'
 
 const placeholders = [
     "What do you make, and what makes it special?",
@@ -10,20 +11,27 @@ const placeholders = [
     "How would you describe your shop in one sentence?"
 ]
 
-export default function AboutYourShop({onNext , onBack}) {
+export default function AboutYourShop({ onNext, onBack, data, onSave }) {
 
     const [currentPlaceholder] = useState(
         () => placeholders[Math.floor(Math.random() * placeholders.length)]
     )
-    const [category , setCategory] = useState("");
-    const [descriptionText , setDescriptionText] = useState("");
 
-    const handleDescription = (e) => {
-        setDescriptionText(e.target.value.slice(0, 500));
+    const [form, setForm] = useState(data)
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value })
+    }
+
+    const handleDescription = () => {
+        const desc = form.description;
+        const length = desc.length;
+        length.slice(0,100);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        onSave(form);
         onNext();
     }
 
@@ -35,27 +43,48 @@ export default function AboutYourShop({onNext , onBack}) {
                     <div className="forms-about-your-shop">
                         <div className="select-about-your-shop-container">
                             <p>Product Category</p>
-                            <select name="product-category" id="product-category-id" className="product-category-select" value={category} onChange={(e) => setCategory(e.target.value)} required>
+                            <select
+                                name="sellerCategory"
+                                id="product-category-id"
+                                className="product-category-select"
+                                value={form.sellerCategory}
+                                onChange={handleChange}
+                                required
+                            >
                                 <option value="" disabled>Select a category</option>
-                                <option value="Home & Living">Home & Living</option>
-                                <option value="Clothing & Accessories">Clothing & Accessories</option>
-                                <option value="Beauty & Wellness">Beauty & Wellness</option>
-                                <option value="Food & Drink">Food & Drink</option>
-                                <option value="Art & Stationery">Art & Stationery</option>
+                                {sellerCategories.map((category) => (
+                                    <option key={category.value} value={category.value}>
+                                        {category.label}
+                                    </option>
+                                ))}
                             </select>
                         </div>
-                        <SellerFormInput identifierInput={'Website or social link'} placeholder={'https://'} />
+                        <SellerFormInput
+                            identifierInput={'Website or social link'}
+                            placeholder={'https://'}
+                            name={'websiteLink'}
+                            value={form.websiteLink}
+                            onChange={handleChange}
+                        />
                     </div>
                     <div className="description-about-your-shop-container">
                         <p className='identifier-text-about-your-shop'>Tell us your brand story</p>
-                        <textarea required maxLength={100} value={descriptionText} placeholder={currentPlaceholder} className='description-input' onChange={handleDescription}/>
+                        <textarea
+                            name="description"
+                            value={form.description}
+                            onChange={handleChange}
+                            required
+                            maxLength={500}
+                            placeholder={currentPlaceholder}
+                            className='description-input'
+                        />
                     </div>
-                    <span className="counter-text-desc-about-your-shop">{descriptionText.length}/500</span>
+                    <span className="counter-text-desc-about-your-shop">{form.description.length}/100</span>
                     <div className="divider-about-your-shop"></div>
                     <div className="footer-btn-about-your-shop">
                         <button className="back-about-your-shop" type='button' onClick={onBack}>Back</button>
                         <button className="continue-about-your-shop" type='submit'>
-                            <span className="continue-about-your-shop-text" >Continue</span>
+                            <span className="continue-about-your-shop-text">Continue</span>
                             <IconArrowRight stroke={2} size={20} />
                         </button>
                     </div>
