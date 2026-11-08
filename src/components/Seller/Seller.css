@@ -1,0 +1,21 @@
+.seller-page-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1600px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .seller-page-container {
+        padding: 0 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .seller-page-container {
+        padding: 0 3rem;
+    }
+}

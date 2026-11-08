@@ -4,6 +4,7 @@ import SellerFormInput from '../SellerFormInput/SellerFormInput'
 import { IconArrowRight } from '@tabler/icons-react'
 import { useState } from 'react'
 import { sellerCategories } from '../../shared/SellerCategories'
+import { validateAboutYourShop } from '../../../utils/validator.jsx'
 
 const placeholders = [
     "What do you make, and what makes it special?",
@@ -12,7 +13,11 @@ const placeholders = [
 ]
 
 export default function AboutYourShop({ onNext, onBack, data, onSave }) {
-
+    const [error , setError] = useState({
+        websiteLink: "",
+        description: ""
+    });
+    const [isButtonDisabled , setIsButtonDisabled] = useState(false);
     const [currentPlaceholder] = useState(
         () => placeholders[Math.floor(Math.random() * placeholders.length)]
     )
@@ -20,13 +25,27 @@ export default function AboutYourShop({ onNext, onBack, data, onSave }) {
     const [form, setForm] = useState(data)
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
-    }
+        const object = e.target.name;
+        const value = e.target.value;
+        const currentError = {...error};
 
-    const handleDescription = () => {
-        const desc = form.description;
-        const length = desc.length;
-        length.slice(0,100);
+        if(value.trim() === ""){
+            currentError[object] = "";
+            setIsButtonDisabled(true);
+        }else{
+            const isValid = validateAboutYourShop(object , value);
+
+            if(!isValid){
+                currentError[object] = "Please enter a valid input";
+                setIsButtonDisabled(true);
+            }else{
+                currentError[object] = "";
+                setIsButtonDisabled(false);
+            }
+        }
+        console.log();
+        setError(currentError);
+        setForm({ ...form, [object]: value });
     }
 
     const handleSubmit = (e) => {
@@ -65,6 +84,7 @@ export default function AboutYourShop({ onNext, onBack, data, onSave }) {
                             name={'websiteLink'}
                             value={form.websiteLink}
                             onChange={handleChange}
+                            error={error.websiteLink}
                         />
                     </div>
                     <div className="description-about-your-shop-container">
@@ -74,16 +94,16 @@ export default function AboutYourShop({ onNext, onBack, data, onSave }) {
                             value={form.description}
                             onChange={handleChange}
                             required
-                            maxLength={500}
+                            maxLength={400}
                             placeholder={currentPlaceholder}
                             className='description-input'
                         />
                     </div>
-                    <span className="counter-text-desc-about-your-shop">{form.description.length}/100</span>
+                    <span className="counter-text-desc-about-your-shop">{form.description.length}/400</span>
                     <div className="divider-about-your-shop"></div>
                     <div className="footer-btn-about-your-shop">
                         <button className="back-about-your-shop" type='button' onClick={onBack}>Back</button>
-                        <button className="continue-about-your-shop" type='submit'>
+                        <button className="continue-about-your-shop" type='submit' disabled={isButtonDisabled}>
                             <span className="continue-about-your-shop-text">Continue</span>
                             <IconArrowRight stroke={2} size={20} />
                         </button>

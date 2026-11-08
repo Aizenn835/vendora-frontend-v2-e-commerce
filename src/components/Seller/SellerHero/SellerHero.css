@@ -1,6 +1,19 @@
 .seller-hero-container{
-    margin: auto 10%;
     display:flex;
+    flex-direction: column;
     align-self: center;
-    justify-content: space-between;
+    gap:24px;
+    width:100%;
+}
+.seller-hero-container > *{
+    min-width:0;
+}
+
+@media (min-width: 1024px){
+    .seller-hero-container{
+        flex-direction: row;
+        justify-content: space-between;
+        gap:48px;
+        width:100%;
+    }
 }

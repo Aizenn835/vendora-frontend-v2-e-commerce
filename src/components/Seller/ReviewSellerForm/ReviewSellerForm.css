@@ -1,24 +1,27 @@
 .form-container{
     border-bottom: 1px solid rgb(207, 211, 207);
-    padding:10px 12px;
-    margin:12px;
+    padding:10px 8px;
+    margin:8px;
     display:flex;
     flex-direction: column;
     gap:5px;
 }
 .form-container:last-child{
     border:none;
-    
 }
 .form-outer-container-review-seller{
     display:flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap:12px;
 }
 .left-review-form-container{
     display:flex;
     flex-direction: column;
     gap:3px;
+    flex: 1;
+    min-width: 0;
+    max-width: 450px;
 }
 .form-container-header{
     color:rgb(130, 133, 130);
@@ -30,14 +33,27 @@
 .info-form-container-text{
     font-size:0.80rem;
     font-weight: 600;
+    overflow-wrap: anywhere;
 }
-.sub-info-form-container-text{
-    font-size:0.75rem;
-    color:rgb(130, 133, 130);
+.sub-info-form-container-text {
+    font-size: 0.75rem;
+    color: rgb(130, 133, 130);
+    max-width: 500px;
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 .right-edit-text-review-info{
+    flex-shrink: 0;
+    white-space: nowrap;
     color:var(--color-secondary);
     font-size:0.85rem;
     font-weight: 600;
     align-self: flex-start;
+}
+
+@media (min-width: 600px){
+    .form-container{
+        padding:10px 12px;
+        margin:12px;
+    }
 }

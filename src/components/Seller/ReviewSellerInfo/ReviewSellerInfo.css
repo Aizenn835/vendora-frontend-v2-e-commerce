@@ -1,5 +1,5 @@
 .inner-review-seller-info-container{
-    padding:20px;
+    padding:16px;
     background-color: #fff;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 12px;
@@ -13,19 +13,26 @@
     border:1px solid  rgb(207, 211, 207);
     border-radius: 12px;
     background-color: var(--color-bg);
+    overflow-wrap: anywhere;
 }
 
-/* seller terms */
 .seller-terms-container{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap:8px;
     margin-top:20px;
+}
+.seller-terms-container input{
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
 }
 .seller-terms-container input:checked{accent-color:var(--color-primary);}
 .seller-terms-text{
     font-size:0.80rem;
+    line-height: 1.4;
     color:rgb(87, 85, 85);
 }
 .bold-text-seller-terms-text{
@@ -37,13 +44,14 @@
     height: 1px;
     background-color: rgb(219, 214, 214);
     flex-grow: 1;
-    margin-top:30px
+    margin-top:20px;
 }
-/* footer btns */
+
 .footer-btn-review-seller-info{
     display:flex;
     align-items: center;
     justify-content: space-between;
+    gap:12px;
     margin-top:12px;
 }
 .back-review-seller{
@@ -63,10 +71,27 @@
     align-items: center;
     color:#fff;
     border-radius: 25px;
-    width: 150px;
+    flex: 1;
     gap:8px;
     cursor: pointer;
 }
-.continue-review-seller-text svg{
+.continue-review-seller svg{
     color:#fff;
+}
+
+@media (min-width: 600px){
+    .inner-review-seller-info-container{
+        padding:20px;
+    }
+    .seller-terms-container{
+        justify-content: center;
+        align-items: center;
+    }
+    .divider-review-seller{
+        margin-top:30px;
+    }
+    .continue-review-seller{
+        flex: none;
+        width: 150px;
+    }
 }

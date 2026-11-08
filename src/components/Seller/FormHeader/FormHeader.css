@@ -2,7 +2,7 @@
     display:flex;
     flex-direction: column;
     gap:5px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .seller-form-header p{
     color:rgb(130, 133, 130);
@@ -12,16 +12,30 @@
     display:flex;
     align-items: center;
     justify-content: space-between;
+    gap:12px;
 }
 .primary-seller-form-header-text-container h3{
-    font-size:1.80rem;
+    font-size:1.35rem;
     font-weight: bold;
+    line-height: 1.2;
+    min-width: 0;
 }
 .primary-seller-form-header-text-container span{
+    flex-shrink: 0;
+    white-space: nowrap;
     background-color: rgb(231, 226, 226);
     padding:7px 9px;
     color:rgb(88, 86, 86);
     font-weight: 550;
     font-size:0.80rem;
     border-radius: 30px;
+}
+
+@media (min-width: 600px){
+    .seller-form-header{
+        margin-bottom: 30px;
+    }
+    .primary-seller-form-header-text-container h3{
+        font-size:1.8rem;
+    }
 }

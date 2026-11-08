@@ -86,3 +86,8 @@
     font-size:0.82rem;
     color:rgb(151, 155, 151);
 }
+@media (max-width: 1280px){
+    .seller-left-card-container{
+        display:none;
+    }
+}

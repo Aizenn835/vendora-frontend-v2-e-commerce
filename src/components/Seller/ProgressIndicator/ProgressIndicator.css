@@ -9,17 +9,32 @@
 .progress-indicator-count{
     color: #ffffff;
     font-size:0.75rem;
-    padding:5px 7px;
     background-color: var(--color-primary);
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
 }
 .progress-indicator-text{
+    display:none;
     color:var(--color-supporting-text);
     font-size:0.895rem;
     font-weight: 500;
+    white-space: nowrap;
+}
+
+@media (min-width: 600px){
+    .progress-indicator-container{
+        gap:8px;
+    }
+    .progress-indicator-count{
+        width: 30px;
+        height: 30px;
+    }
+    .progress-indicator-text{
+        display:block;
+    }
 }

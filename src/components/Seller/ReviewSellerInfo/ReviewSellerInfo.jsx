@@ -29,7 +29,6 @@ export default function ReviewSellerInfo({ onBack, data, onSuccess }) {
             });
             onSuccess();
             navigate("/");
-            localStorage.removeItem('sellerFormStep');
         } catch (err) {
             console.error(err);
         } finally {

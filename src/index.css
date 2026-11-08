@@ -15,13 +15,30 @@
   --color-border: rgb(224, 218, 218);
   --color-product-grid:#F1EBE2;
 }
-*{
+*, *::before, *::after {
    margin:0;
    padding:0;
    box-sizing: border-box;
-   font-family: 'DM Sans' , 'Plus Jakarta Sans';
-   -webkit-tap-highlight-color:transparent
+   font-family: 'DM Sans', 'Plus Jakarta Sans', sans-serif;
+   -webkit-tap-highlight-color:transparent;
 }
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@supports (overflow-x: clip) {
+  html, body {
+    overflow-x: clip;
+  }
+}
+
 body{
   background-color: var(--color-bg);
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
 }

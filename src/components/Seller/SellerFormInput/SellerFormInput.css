@@ -1,8 +1,8 @@
 .input-identifier-container{
     display:flex;
     flex-direction: column;
-    gap:5px;
     width: 100%;
+    gap:5px;
 }
 .identifier-text{
     color:rgb(27, 27, 27);
@@ -17,4 +17,21 @@
     border-radius: 15px;
     outline: none;
     color:rgb(59, 58, 58);
+}
+.invalid-input{
+    border:1px solid #DC2626;
+}
+.error-message{
+    font-size:0.75rem;
+    color:#DC2626;
+}
+.invalid-identifier{
+    color:#DC2626;
+}
+.input-identifier-input-container{
+    height:80px;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    gap:5px;
 }

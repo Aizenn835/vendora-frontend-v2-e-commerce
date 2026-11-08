@@ -4,9 +4,11 @@ import './Seller.css'
 
 export default function Seller(){
     return(
-        <div className="seller-page-container">
+        <div className="seller-page">
             <SellerHeader />
-            <SellerHero />
+            <div className="seller-page-container">
+                <SellerHero />
+            </div>
         </div>
     );
 }

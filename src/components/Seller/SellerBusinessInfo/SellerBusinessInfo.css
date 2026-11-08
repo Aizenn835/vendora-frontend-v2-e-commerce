@@ -1,13 +1,17 @@
 .form-grid-seller{
     display: flex;
-    grid-template-columns: repeat(2, 2fr);
-    gap:12px;
     flex-direction: column;
+    gap:12px;
 }
 .form-inner-grid-seller{
     display:flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     gap:12px;
+}
+.form-inner-grid-seller > *{
+    flex: 1;
+    min-width: 0;
 }
 .footer-divider-seller-form{
     margin-top:20px;
@@ -28,10 +32,17 @@
     align-items: center;
     color:#fff;
     border-radius: 25px;
-    width: 150px;
+    width: 100%;
     gap:8px;
     cursor: pointer;
 }
-.continue-business-form-text svg{
-    color:#fff;
+
+@media (min-width: 600px){
+    .form-inner-grid-seller{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .continue-seller-business-info{
+        width: 150px;
+    }
 }

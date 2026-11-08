@@ -3,13 +3,40 @@ import '../../shared/SellerForms.css'
 import SellerFormInput from '../SellerFormInput/SellerFormInput'
 import FormHeader from '../FormHeader/FormHeader'
 import { IconArrowRight } from '@tabler/icons-react'
+import { validateBusinessInfo } from '../../../utils/validator.jsx'
 import { useState } from 'react'
 
 export default function SellerBusinessInfo({ data, onNext, onSave }) {
     const [form, setForm] = useState(data);
+    const [isButtonDisabled , setIsButtonDisabled] = useState(false);
+    const [error , setError] = useState({
+        email: "",
+        phoneNumber: "",
+        shopName: ""
+    });
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
+        const object = e.target.name;
+        const value = e.target.value;
+        const currentError = {...error};
+
+        if(value.trim() === ""){
+            currentError[object] = "";
+            setIsButtonDisabled(true);
+        }else{
+            const isValid = validateBusinessInfo(object , value);
+
+            if(!isValid){
+                currentError[object] = "Please enter a valid input";
+                setIsButtonDisabled(true);
+            }
+            else{
+                currentError[object] = "";
+                setIsButtonDisabled(false);
+            }
+        }
+        setError(currentError);
+        setForm({ ...form, [object]: value });
     }
 
     const handleSubmit = (e) => {
@@ -31,6 +58,7 @@ export default function SellerBusinessInfo({ data, onNext, onSave }) {
                                 name={'email'}
                                 value={form.email}
                                 onChange={handleChange}
+                                error={error.email}
                             />
                             <SellerFormInput
                                 identifierInput={'Phone number'}
@@ -38,6 +66,7 @@ export default function SellerBusinessInfo({ data, onNext, onSave }) {
                                 name={'phoneNumber'}
                                 value={form.phoneNumber}
                                 onChange={handleChange}
+                                error={error.phoneNumber}
                             />
                         </div>
                         <SellerFormInput
@@ -46,11 +75,12 @@ export default function SellerBusinessInfo({ data, onNext, onSave }) {
                             name={'shopName'}
                             value={form.shopName}
                             onChange={handleChange}
+                            error={error.shopName}
                         />
                     </div>
                     <div className="divider-seller-form footer-divider-seller-form"></div>
                     <div className="btn-container-seller-form">
-                        <button className="continue-seller-business-info" type='submit'>
+                        <button className="continue-seller-business-info" type='submit' disabled={isButtonDisabled}>
                             <span className="continue-business-form-text">Continue</span>
                             <IconArrowRight stroke={2} size={20} />
                         </button>
