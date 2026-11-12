@@ -31,7 +31,7 @@ export default function FormSignUp({buttonText}){
 
         if(isLoading) return;
 
-        if(!isEmailValid || !isFirstNameValid || !isLastNameValid || !hasMinLength || !hasNumberOrSymbol || error === 400){
+        if(!isEmailValid || !isFirstNameValid || !isLastNameValid || !hasMinLength || !hasNumberOrSymbol){
             const message = "Invalid input. Please check the requirements and try again.";
             toast.error(message);
             return;
@@ -54,7 +54,6 @@ export default function FormSignUp({buttonText}){
       
         } catch (err) {
             const message = err.response?.data?.message || "Registration failed. Please try again.";
-            setError(err.response.status);
             toast.error(message);
         } finally {
             setIsLoading(false);

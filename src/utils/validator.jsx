@@ -57,10 +57,6 @@ export function validateAboutYourShop(section, values) {
         } catch (_) {
             return false; 
         }
-    }
-    if(section === "description"){
-        values.slice(0,100);
-    }
-    
+    } 
     return true; 
 }

@@ -1,0 +1,38 @@
+.seller-status-inner-content-container{
+    max-width:900px;
+    margin:50px auto;
+    padding:52px 48px;
+    background:#fff;
+    border:1px solid #e6e0d2;
+    border-radius:24px;
+    text-align:center;
+    box-sizing:border-box;
+}
+.checkmark-seller-status-content{
+    background-color: #d9ebdc;
+    border-radius: 50px;
+    width: 60px;
+    height:60px;
+    padding:10px 12px;
+    box-sizing: border-box;
+}
+.seller-application-text{
+    color:var(--color-supporting-text);
+    font-size:0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-top:12px;
+    text-transform: uppercase;
+}
+.application-seller-status-text{
+    color:var(--color-primary);
+}
+.application-seller-status-supporting-text{
+    padding-top:7px;
+    width:100%;
+    max-width:55ch;
+    margin-inline:auto;
+    line-height:1.6;
+    text-wrap:balance;
+    color:var(--color-supporting-text);
+}
