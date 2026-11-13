@@ -14,6 +14,7 @@
     margin: 0 auto;
     padding:32px 16px;
     box-sizing: border-box;
+    min-height: 20px;
 }
 .header-seller-form{
     display:flex;
@@ -61,7 +62,9 @@
     color:rgb(122, 121, 121);
     font-size:0.75rem;
 }
-
+.divider-active-seller-form{
+    background-color:var(--color-primary);
+}
 @media (min-width: 600px){
     .seller-form-application-inner-container{
         gap:2.5rem;
@@ -77,10 +80,7 @@
 
 @media (min-width: 1024px){
     .seller-form-application-inner-container{
-        gap:3rem;
-        padding:80px 70px;
-    }
-    .seller-form-primary-text{
-        font-size:2.5rem;
+        gap:2rem;
+        padding:50px 70px;
     }
 }

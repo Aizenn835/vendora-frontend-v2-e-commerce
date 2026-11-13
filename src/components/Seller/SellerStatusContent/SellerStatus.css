@@ -1,32 +1,47 @@
+.seller-status-content-container{
+    padding:0 16px;
+}
+
 .seller-status-inner-content-container{
+    width:100%;
     max-width:900px;
-    margin:50px auto;
-    padding:52px 48px;
+    margin:clamp(24px, 5vw, 50px) auto;
+    padding:clamp(28px, 6vw, 52px) clamp(18px, 5vw, 48px);
     background:#fff;
     border:1px solid #e6e0d2;
     border-radius:24px;
     text-align:center;
     box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
+
 .checkmark-seller-status-content{
-    background-color: #d9ebdc;
-    border-radius: 50px;
-    width: 60px;
+    background-color:#d9ebdc;
+    border-radius:50px;
+    width:60px;
     height:60px;
     padding:10px 12px;
-    box-sizing: border-box;
+    box-sizing:border-box;
+    flex-shrink:0;
 }
+
 .seller-application-text{
     color:var(--color-supporting-text);
     font-size:0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-weight:600;
+    letter-spacing:0.5px;
     padding-top:12px;
-    text-transform: uppercase;
+    text-transform:uppercase;
 }
+
 .application-seller-status-text{
     color:var(--color-primary);
+    font-size:clamp(1.6rem, 5vw, 2.25rem);
+    line-height:1.2;
 }
+
 .application-seller-status-supporting-text{
     padding-top:7px;
     width:100%;
@@ -35,4 +50,124 @@
     line-height:1.6;
     text-wrap:balance;
     color:var(--color-supporting-text);
+}
+
+.progress-seller-status{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(6px, 2vw, 12px);
+    margin:30px 0;
+    width:100%;
+    max-width:650px;
+    box-sizing:border-box;
+}
+
+.divider-seller-status{
+    height:1px;
+    min-width:10px;
+    background-color:rgb(219, 214, 214);
+    flex-grow:1;
+    flex-shrink:1;
+}
+
+.seller-status-info-container{
+    margin-top:12px;
+    width:100%;
+    max-width:650px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    justify-content:center;
+    background-color:var(--color-bg);
+    box-shadow:rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    border-radius:12px;
+    padding:15px 17px;
+}
+
+.seller-status-info-inner-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+}
+
+.seller-status-info-text{
+    font-weight:350;
+    color:var(--color-primary);
+    font-size:0.89rem;
+    flex-shrink:0;
+}
+
+.seller-status-info-value{
+    font-size:0.89rem;
+    font-weight:550;
+    text-align:right;
+    min-width:0;
+    overflow-wrap:anywhere;
+}
+
+.pending-status-seller-status{
+    background-color:#ebcfa7;
+    padding:4px 6px;
+    border-radius:12px;
+    font-size:0.75rem;
+    font-weight:550;
+    flex-shrink:0;
+}
+
+.seller-status-buttons{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-top:30px;
+    width:100%;
+}
+
+.seller-status-btn{
+    width:100%;
+    max-width:300px;
+    padding:15px 17px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:1rem;
+    transition:transform 0.3s ease;
+}
+
+.back-to-home-seller-status{
+    background-color:var(--color-primary);
+    color:#ffffff;
+    font-weight:600;
+}
+
+.browse-prod-seller-status{
+    background-color:transparent;
+    border:2px solid var(--color-primary);
+    color:var(--color-primary);
+    font-weight:600;
+}
+
+@media (hover:hover){
+    .seller-status-btn:hover{
+        transform:scale(0.95);
+    }
+}
+
+@media (max-width:560px){
+    .seller-status-inner-content-container{
+        border-radius:18px;
+    }
+
+    .seller-status-buttons{
+        flex-direction:column;
+        margin-top:24px;
+    }
+
+    .seller-status-btn{
+        max-width:100%;
+    }
 }

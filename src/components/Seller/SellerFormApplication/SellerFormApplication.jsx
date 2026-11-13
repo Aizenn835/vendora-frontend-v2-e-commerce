@@ -58,6 +58,14 @@ export default function SellerFormApplication() {
         setCurrentForm(0);
     }
 
+    const progress = (step) => {
+        const currentStep = currentForm;
+        if(step < currentStep) return "completed-progress";
+        if(step === currentStep) return "active-progress";
+        return "";
+        
+    }
+
     const renderForms = () => {
         switch (forms[currentForm].key) {
             case "businessInfo":
@@ -93,11 +101,11 @@ export default function SellerFormApplication() {
                     <p className='seller-form-supporting-text'>It takes about 5 minutes. We review every application within 2–3 business days.</p>
                 </div>
                 <div className="progress-indicator-container-seller-form">
-                    <ProgressIndicator progressCount={1} text={"Your business"} />
-                    <div className="divider-seller-form"></div>
-                    <ProgressIndicator progressCount={2} text={"Shop details"} />
-                    <div className="divider-seller-form"></div>
-                    <ProgressIndicator progressCount={3} text={"Review"} />
+                    <ProgressIndicator progressCount={1} text={"Your business"} progress={progress(0)}/>
+                    <div className={`divider-seller-form ${progress(0) === 'completed-progress' ? 'divider-active-seller-form' : ''}`}></div>
+                    <ProgressIndicator progressCount={2} text={"Shop details"} progress={progress(1)}/>
+                    <div className={`divider-seller-form ${progress(1) === 'completed-progress' ? 'divider-active-seller-form' : ''}`}></div>
+                    <ProgressIndicator progressCount={3} text={"Review"} progress={progress(2)}/>
                 </div>
                 {renderForms()}
                 <footer className="footer-outside-form-container">
