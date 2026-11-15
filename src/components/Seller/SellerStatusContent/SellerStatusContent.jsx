@@ -1,11 +1,38 @@
 import './SellerStatus.css'
-import { IconCheck } from '@tabler/icons-react';
-import ProgressIndicator from '../ProgressIndicator/ProgressIndicator';
+import { IconCheck } from '@tabler/icons-react'
+import { confirmation } from '../../../api/seller.js'
+import { enumChecker } from '../../../utils/helper.jsx'
+import ProgressIndicator from '../ProgressIndicator/ProgressIndicator'
 import { useNavigate } from 'react-router-dom';
+import { useState , useEffect } from 'react';
 
 
 export default function SellerStatusContent(){
     const navigate = useNavigate();
+
+    const [shopName , setShopName] = useState("");
+    const [category , setCategory] = useState("");
+    const [status , setStatus] = useState("");
+    
+    const [error , setError] = useState("");
+
+
+    useEffect(() => {
+        const handleSellerConfirmation = async () => {
+            try {
+                const response = await confirmation();
+                const { shopName , sellerCategory , sellerStatus } = response.data;
+                setShopName(shopName);
+                setCategory(enumChecker(sellerCategory));
+                setStatus(sellerStatus);
+            } catch (err) {
+                const message = err.response?.data?.message || err.message || "Something went wrong";
+                setError(message);
+                console.log(error);
+            }
+        }
+        handleSellerConfirmation();
+    }, []);
 
     return(
         <div className="seller-status-content-container">
@@ -24,15 +51,15 @@ export default function SellerStatusContent(){
                 <div className="seller-status-info-container">
                     <div className="seller-status-info-inner-container">
                         <h5 className="seller-status-info-text">Shop name</h5>
-                        <p className='seller-status-info-value'>Vendora</p>
+                        <p className='seller-status-info-value'>{shopName}</p>
                     </div>
                     <div className="seller-status-info-inner-container">
                         <h5 className="seller-status-info-text">Category</h5>
-                        <p className='seller-status-info-value'>Fashion</p>
+                        <p className='seller-status-info-value'>{category}</p>
                     </div>
                     <div className="seller-status-info-inner-container">
                         <h5 className="seller-status-info-text">Status</h5>
-                        <p className='pending-status-seller-status'>PENDING</p>
+                        <p className='pending-status-seller-status'>{status}</p>
                     </div>
                 </div>
                 <div className="seller-status-buttons">

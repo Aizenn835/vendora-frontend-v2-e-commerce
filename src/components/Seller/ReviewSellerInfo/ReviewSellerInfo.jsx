@@ -23,12 +23,12 @@ export default function ReviewSellerInfo({ onBack, data, onSuccess }) {
         setIsLoading(true);
 
         try {
-            const response = await apply({
+            await apply({
                 ...data.businessInfo,
                 ...data.aboutYourShop
             });
             onSuccess();
-            navigate("/");
+            navigate("/seller-status");
         } catch (err) {
             console.error(err);
         } finally {
