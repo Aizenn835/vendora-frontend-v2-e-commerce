@@ -56,7 +56,7 @@ export default function SellerFormApplication() {
     const clearApplication = () => {
         setData(initialData);
         setCurrentForm(0);
-    }
+    }       
 
     const progress = (step) => {
         const currentStep = currentForm;
