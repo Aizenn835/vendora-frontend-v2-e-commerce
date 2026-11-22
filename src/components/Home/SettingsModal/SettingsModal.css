@@ -46,3 +46,8 @@
 .logout-setting{
     color:rgb(238, 18, 18);
 }
+@media (max-width: 768px){
+    .settings-modal-container {
+        right:40px;
+    }
+}

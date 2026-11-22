@@ -8,9 +8,14 @@ export default function Home(){
     const [isNavOpen , setIsNavOpen] = useState(false);
     const [isSettingsOpen , setIsSettingsOpen] = useState(false);
 
+    const handleNavOpen = () => {
+        setIsNavOpen(true);
+        setIsSettingsOpen(false);
+    }
+
     return(
         <>
-            <HomeHeader onMenuClick={() => setIsNavOpen(true)} onSettingsClick={() => setIsSettingsOpen(!isSettingsOpen)}/>
+            <HomeHeader onMenuClick={handleNavOpen} onSettingsClick={() => setIsSettingsOpen(!isSettingsOpen)}/>
             <SideBar isOpen={isNavOpen} onClose={() => setIsNavOpen(false)}/>
             <SettingsModal isOpen={isSettingsOpen} />
             <Hero />    

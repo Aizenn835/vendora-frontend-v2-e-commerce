@@ -2,6 +2,7 @@ import { IconEye , IconEyeOff , IconCircleDashedCheck , IconCircleX , IconCircle
 import { login } from '../../../api/auth'
 import { validateEmail } from '../../../utils/validator'
 import '../../shared/FormLogin.css'
+import Decoder from '../../../utils/decoder'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { useState } from 'react'
@@ -42,9 +43,13 @@ export default function FormLogin({buttonText}){
             });
             const token = response.data?.token;
             if(token){localStorage.setItem('Token' , token);}
+
+            const decode = Decoder(token);
             
-            navigate("/");
-            toast.success("Account successfully created.");
+            if(decode.role === "ADMIN"){ navigate('/admin'); } 
+            else { navigate("/"); }
+
+            toast.success("Account successfully login.");
         } catch(err) {
             const message = err.response?.data?.message ?? "Registration failed. Please try again.";
             toast.error(message);

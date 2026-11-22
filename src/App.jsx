@@ -3,6 +3,7 @@ import Authentication from './pages/Authentication'
 import SellerApprovePage from "./pages/SellerApprovePage"
 import Seller from "./pages/SellerPage"
 import OAuthCallback from "./components/Auth/OAuthCallBack"
+import Admin from "./components/Admin/Admin"
 import Home from './pages/HomePage'
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Route path='/oauth/callback' element={<OAuthCallback />}></Route>
           <Route path="login" element={<Authentication />}></Route>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/admin" element={<Admin />}></Route>
           <Route path="/seller" element={<Seller/>}></Route>
           <Route path="/seller-status" element={<SellerApprovePage />}></Route>
       </Routes>

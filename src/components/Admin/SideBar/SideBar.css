@@ -1,0 +1,124 @@
+.admin-sidebar-container{
+    width: 100%;
+    height:100vh;
+    max-width: 230px;
+    background-color: var(--color-primary);
+    padding:10px 12px 12px 5px;
+    display:flex;
+    flex-direction: column;
+    gap:35px;
+}
+.admin-sidebar-logo-container{
+    display:flex;
+    align-items: center;
+    gap:12px;
+}
+.logo-vendora-sidebar-admin{
+    width: 40px;
+    height:40px;
+    object-fit: cover;
+}
+.logo-text-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.logo-text{
+    color:var(--color-secondary);
+}
+.admin-text{
+    font-size:0.75rem;
+    color:var(--color-supporting-text);
+    font-weight: 500;
+}
+
+/* side bar navigation */
+.application-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left:7px;
+    height:100%;
+}
+.nav-list-admin{
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:30px;
+}
+.nav-text-admin{
+    border-radius: 12px;
+    user-select: none;
+}
+.active-admin-tab{
+    background-color: #38573d;
+}
+.nav-text-admin a{
+    text-decoration: none;
+    display:flex;
+    align-items: center;
+    gap:7px;
+    padding:10px 12px;
+}
+.svg-admin-sidebar{
+    color:var(--color-secondary);
+}
+.nav-text-admin{
+    color:var(--color-supporting-text);
+    font-size:0.85rem;
+}
+.active-text{
+    color:#fff;
+    font-weight: 500;
+}
+
+/* profile content */
+.pfp-admin-container{
+    display:flex;
+    align-items: center;
+    overflow: hidden;
+    gap:9px;
+
+}
+.online-pfp-admin-container{
+    position: relative;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+}
+.pfp-image-admin {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  image-rendering: -webkit-optimize-contrast;
+  display: block;
+}
+
+.online-indicator-admin {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background-color: #22c55e;
+  border: 2px solid #ffffff; 
+  border-radius: 50%;
+  bottom: 0;
+  right: 0; 
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.pfp-user-info-container{
+    display:flex;
+    flex-direction: column;
+    gap:3px;
+}
+.user-name-admin{
+    color:var(--color-secondary);
+    font-weight: 490;
+    font-size:0.9285rem;
+}
+.user-email-admin{
+    font-size:0.82rem;
+    color:var(--color-supporting-text);
+}

@@ -2,6 +2,7 @@ import { IconEye , IconEyeOff , IconCircleDashedCheck , IconCircleX , IconCircle
 import LoadingAnimation from '../../shared/LoadingAnimation/LoadingAnimation'
 import { validateEmail , validateName } from '../../../utils/validator.jsx'
 import { useNavigate } from 'react-router-dom'
+import Decoder from '../../../utils/decoder.jsx'
 import { useState } from 'react'
 import { signUp } from '../../../api/auth'
 import '../../shared/FormLogin.css'
@@ -50,7 +51,8 @@ export default function FormSignUp({buttonText}){
            if(token){localStorage.setItem('Token', token);}
            
            toast.success("Account successfully created.");
-           navigate("/");
+
+           navigate('/');
       
         } catch (err) {
             const message = err.response?.data?.message || "Registration failed. Please try again.";
