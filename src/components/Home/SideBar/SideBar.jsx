@@ -8,10 +8,10 @@ export default function SideBar({isOpen , onClose}){
         if(!isOpen) return;
 
         const handleKey = (e) => {
-            if(e.key === "Escape") isClose();
+            if(e.key === "Escape") onClose();
         }
 
-        document.addEventListener("keydown" , handleKey);
+        
         document.body.style.overflow = "hidden";
 
         return () => {

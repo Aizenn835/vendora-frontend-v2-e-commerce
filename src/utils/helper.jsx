@@ -1,3 +1,6 @@
+import decoder from './decoder';
+
+
 
 export const enumChecker = (sellerCategory) => {
     if(sellerCategory === 'HOME_AND_LIVING'){
@@ -15,4 +18,11 @@ export const enumChecker = (sellerCategory) => {
     else if(sellerCategory === "ART_AND_STATIONERY"){
         return "ART & STATIONERY";
     }
+}
+
+export const RoleRoute = () => {
+    const token = localStorage.getItem("Token");
+    const decoder = Decoder(token);
+
+
 }

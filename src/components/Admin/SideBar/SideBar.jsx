@@ -2,24 +2,22 @@ import './SideBar.css'
 import logo from '../../../assets/logo-vendora/logo-mark.svg'
 import profile from '../../../assets/admin-images/admin-pfp.jpeg'
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { IconLayoutDashboard , IconFilePencil , IconReportAnalytics , IconHeartHandshake , IconSettings} from '@tabler/icons-react';
 
 
 
-
 const nav = [
-    {logo: IconLayoutDashboard , text: 'Overview'},
-    {logo: IconFilePencil , text: 'Seller Application'},
-    {logo: IconReportAnalytics , text: 'Sales'},
-    {logo: IconHeartHandshake , text: 'Commision'},
-    {logo: IconSettings , text: 'Settings'},
+    { logo: IconLayoutDashboard, text: "Overview", path: "/admin/overview" },
+    { logo: IconFilePencil, text: "Seller applications", path: "/admin/seller-application" },
+    { logo: IconReportAnalytics, text: "Sales", path: "/admin/sales" },
+    { logo: IconHeartHandshake, text: "Commission", path: "/admin/commission" },
+    { logo: IconSettings, text: "Settings", path: "/admin/settings" },
 ];
 
-const logoName = ['Overview' , 'Seller Application' , 'Sales' , 'Commision' , 'Settings'];
 
 export default function SideBar(){
 
-    const [activeNav , setActiveNav] = useState("Overview");
 
     return(
         <div className="admin-sidebar-container">
@@ -32,16 +30,14 @@ export default function SideBar(){
             </div>
             <nav className="application-container">
                 <ul className="nav-list-admin">
-                    {
-                        nav.map((li , index) => (
-                            <li className={`nav-text-admin ${activeNav === li.text ? 'active-admin-tab' : ''}`} onClick={() => setActiveNav(logoName[index])}  key={index}>
-                                <a href="#">
+                        {nav.map((li , index) => (
+                            <li className='nav-text-admin' key={index}>
+                                <NavLink to={li.path} className={({isActive}) => isActive ? "active-admin-tab" : ""}>
                                     <li.logo stroke={2} size={19} className='svg-admin-sidebar' />
-                                    <span className={`nav-text-admin ${activeNav === li.text ? 'active-text' : ''} `}>{li.text}</span>
-                                </a>
+                                    <span className='nav-text-admin'>{li.text}</span>
+                                </NavLink>
                             </li> 
-                        ))
-                    }  
+                        ))}  
                 </ul>
                 <div className="pfp-admin-container">
                     <div className="online-pfp-admin-container">

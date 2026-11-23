@@ -51,9 +51,7 @@
     border-radius: 12px;
     user-select: none;
 }
-.active-admin-tab{
-    background-color: #38573d;
-}
+
 .nav-text-admin a{
     text-decoration: none;
     display:flex;
@@ -68,9 +66,13 @@
     color:var(--color-supporting-text);
     font-size:0.85rem;
 }
-.active-text{
-    color:#fff;
-    font-weight: 500;
+.active-admin-tab{
+    background-color: #38573d;
+    border-radius: 12px;
+}
+.active-admin-tab .nav-text-admin{
+    color:#ffffff;
+    font-size:500;
 }
 
 /* profile content */
