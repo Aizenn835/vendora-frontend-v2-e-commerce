@@ -1,0 +1,92 @@
+.admin-table-seller-container{
+    overflow-x:auto;
+    margin-top:20px;
+}
+.applications-table{
+    width:100%;
+    min-width:760px;
+    border-collapse:collapse;
+}
+.applications-table th{
+    padding:40px 30px 12px;
+    text-align:left;
+    font-size:0.75rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#6b6565;
+}
+.applications-table td{
+    padding:14px 28px;
+    border-top:1px solid #efe9db;
+    font-size:0.9rem;
+    vertical-align:middle;
+}
+.applications-actions-head{
+    text-align:right !important;
+}
+.shop-cell{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.shop-initials{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    background:#cfd3bd;
+    color:#1d291f;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+.shop-name{
+    font-weight:700;
+}
+
+.shop-email{
+    font-size:0.82rem;
+    color:#6b6565;
+}
+.status-badge{
+    display:inline-block;
+    background:#f3e3a6;
+    color:#1d291f;
+    font-size:0.7rem;
+    font-weight:650;
+    letter-spacing:0.5px;
+    padding:4px 10px;
+    border-radius:999px;
+}
+.actions-admin-table-container{
+    display:flex;
+    gap:10px;
+    width: 100%;
+}
+.app-btn{
+    padding:7px 13px;
+    border-radius:8px;
+    border:1.5px solid var(--color-primary);
+    background:transparent;
+    color:var(--color-primary);
+    font-family:inherit;
+    font-size:0.8rem;
+    font-weight:700;
+    cursor:pointer;
+    width: 100%;
+    max-width: 200px;
+}
+.app-btn-approve{
+    background:var(--color-primary);
+    color:#f7f4ed;
+}
+.app-btn-warn{
+    border-color:#bb5834;
+    color:#9c4526;
+}
+/* .applications-pager button:disabled  */
+.app-btn:disabled{  
+    opacity:0.5;
+    cursor:not-allowed;
+}
