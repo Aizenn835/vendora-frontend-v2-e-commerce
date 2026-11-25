@@ -1,3 +1,39 @@
+
+.seller-status-admin-inner-container{
+    display:flex;
+    align-items: center;
+    gap:12px;
+    list-style: none;
+}
+.seller-status-container{
+    display:flex;
+    gap:5px;
+    padding:8px 10px;
+    border-radius: 30px;
+    user-select:none;
+    transition: color 0.2s ease , background-color 0.2s ease;
+}
+.seller-status-text,
+.seller-status-count{
+    font-size:0.825rem;
+    font-weight: 500;
+    color:var(--color-primary);
+    cursor: pointer;;
+}
+.active-status-admin{
+    background-color: var(--color-primary);
+    color:#fff;
+}
+.active-status-admin 
+.seller-status-text{
+    color:#fff;
+}
+.active-status-admin 
+.seller-status-count{
+    color:#fff;
+}
+
+/* TABLE DESIGN */
 .admin-table-seller-container{
     overflow-x:auto;
     margin-top:20px;

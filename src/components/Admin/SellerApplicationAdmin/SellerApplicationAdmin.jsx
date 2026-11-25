@@ -1,5 +1,4 @@
 import AdminContentHeader from '../AdminContentHeader/AdminContentHeader';
-import AdminTableSellerNav from '../AdminSellerStatusNav/AdminSellerStatusNav';
 import AdminTableSellerApplication from '../AdminTableSellerApplication/AdminTableSellerApplication.jsx';
 import './SellerApplicationAdmin.css'
 
@@ -10,7 +9,6 @@ export default function SellerApplicationAdmin(){
         <div className="seller-application-admin-container">
             <AdminContentHeader/>
             <section className="seller-application-hero">
-                <AdminTableSellerNav />
                 <AdminTableSellerApplication />
             </section>
         </div> 

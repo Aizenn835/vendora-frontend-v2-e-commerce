@@ -10,7 +10,7 @@ export default function SellerBusinessInfo({ data, onNext, onSave }) {
     const [form, setForm] = useState(data);
     const [isButtonDisabled , setIsButtonDisabled] = useState(false);
     const [error , setError] = useState({
-        email: "",
+        shopEmail: "",
         phoneNumber: "",
         shopName: ""
     });

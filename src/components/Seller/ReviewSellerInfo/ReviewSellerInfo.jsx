@@ -21,6 +21,7 @@ export default function ReviewSellerInfo({ onBack, data, onSuccess }) {
         if (isLoading) return;
 
         setIsLoading(true);
+        console.log(data.businessInfo);
 
         try {
             await apply({
