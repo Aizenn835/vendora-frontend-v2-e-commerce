@@ -66,7 +66,10 @@
     color:var(--color-supporting-text);
     font-size:0.85rem;
 }
-
+.active-admin-tab{
+    background-color: #38573d;
+    border-radius: 12px;
+}
 .active-admin-tab .nav-text-admin{
     color:#ffffff;
     font-size:500;

@@ -1,6 +1,3 @@
-import decoder from './decoder';
-
-
 
 export const enumChecker = (sellerCategory) => {
     if(sellerCategory === 'HOME_AND_LIVING'){
@@ -16,13 +13,11 @@ export const enumChecker = (sellerCategory) => {
         return "Food & Drink";
     }
     else if(sellerCategory === "ART_AND_STATIONERY"){
-        return "ART & STATIONERY";
+        return "Art & Stationery";
     }
 }
 
-export const RoleRoute = () => {
-    const token = localStorage.getItem("Token");
-    const decoder = Decoder(token);
-
-
+export const formatInitial = (value) => {
+    return value.split(" ").slice(0,2).map((word) => word[0]).join("").toUpperCase();
 }
+

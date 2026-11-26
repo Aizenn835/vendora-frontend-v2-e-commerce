@@ -54,7 +54,7 @@
 .applications-table td{
     padding:14px 28px;
     border-top:1px solid #efe9db;
-    font-size:0.9rem;
+    font-size:0.825rem;
     vertical-align:middle;
 }
 .applications-actions-head{
@@ -84,16 +84,6 @@
 .shop-email{
     font-size:0.82rem;
     color:#6b6565;
-}
-.status-badge{
-    display:inline-block;
-    background:#f3e3a6;
-    color:#1d291f;
-    font-size:0.7rem;
-    font-weight:650;
-    letter-spacing:0.5px;
-    padding:4px 10px;
-    border-radius:999px;
 }
 .actions-admin-table-container{
     display:flex;
@@ -125,4 +115,33 @@
 .app-btn:disabled{  
     opacity:0.5;
     cursor:not-allowed;
+}
+
+/* applications footer */
+.applications-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    padding:14px 22px;
+    border-top:1px solid #efe9db;
+    font-size:0.82rem;
+    color:#6b6565;
+}
+.applications-pager{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.applications-pager button{
+    padding:6px 12px;
+    border:1px solid #e6e0d2;
+    border-radius:8px;
+    background:#fff;
+    color:var(--color-primary);
+    font-family:inherit;
+    font-weight:600;
+    cursor:pointer;
 }

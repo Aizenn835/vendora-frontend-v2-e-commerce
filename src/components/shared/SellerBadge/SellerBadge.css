@@ -1,0 +1,28 @@
+.status-badge{
+    display:inline-block;
+    font-size:0.7rem;
+    font-weight:800;
+    letter-spacing:1px;
+    padding:4px 10px;
+    border-radius:999px;
+}
+
+.status-pending{
+    background:#f3e3a6;
+    color:#1d291f;
+}
+
+.status-approved{
+    background:#d9ebdc;
+    color:#1f4d2b;
+}
+
+.status-suspended{
+    background:#f6d9c9;
+    color:#8a3a1f;
+}
+
+.status-banned{
+    background:#5b1f1a;
+    color:#f7f4ed;
+}

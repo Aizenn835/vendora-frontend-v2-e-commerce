@@ -1,0 +1,129 @@
+.modal-approval-admin-overlay {
+    background: rgba(26, 25, 25, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    padding: 20px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: auto;
+}
+.open-modal-approval{
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-approval-admin-content{
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 100px auto;
+    background-color: rgb(247, 245, 245);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    top:20%;
+}
+.inner-modal-admin-approval-container{margin:12px;}
+.modal-admin-approval-header{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}
+.modal-admin-approval-inner-container{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:5px;
+}
+.left-content-modal-approval-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+}
+.modal-admin-approval-inner-container svg{
+    color:var(--color-primary);
+}
+.admin-seller-business-name{
+    color:var(--color-primary);
+    font-size:0.95rem;
+}
+.approval-admin-confirmation-message{
+    font-size:0.83rem;
+    color:rgb(105, 104, 104);
+}
+.exit-admin-approval-modal{
+    color:rgb(27, 27, 27);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* business info container */
+.business-name-info-admin-container{
+    display:flex;
+    align-items: center;
+    background-color:#f1e9d4;
+    padding:7px 9px;
+    gap:7px;
+    margin-top:12px;
+    border-radius: 12px;
+}
+.business-info-admin-inner-container{
+    display:flex;
+    flex-direction: column;
+}
+.business-initial{
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    background:#a1a883;
+    color:#1d291f;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+.business-name-info-admin{
+    color:var(--color-primary);
+    font-size:0.89rem;
+}
+.business-email-info-admin{
+    color:rgb(82, 80, 80);
+    font-size:0.80rem;
+}
+
+/* buttons */
+.modal-approval-btn-container{
+    margin-top:10px;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap:5px;
+}
+.modal-approval{
+    padding:7px 9px;
+    outline:none;
+    cursor: pointer;
+}
+.admin-cancel-btn{
+    background-color: #fff;
+    border:1px solid var(--color-primary);
+    font-weight: 500;
+    font-size:0.75rem;
+    border-radius: 5px;
+}
+.admin-approve-btn{
+    background-color: var(--color-primary);
+    border:1px solid var(--color-primary);
+    font-weight: 600;
+    font-size:0.75rem;
+    color:#fff;
+    border-radius: 5px;
+}
