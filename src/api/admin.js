@@ -11,3 +11,7 @@ export const filterCounter = () => {
 export const viewSellerById = ({id} = {}) => {
     return axiosClient.get(`/api/admin/seller/${id}`);
 }
+
+export const approveApplication = ({id} = {}) => {
+    return axiosClient.patch(`/api/admin/seller/${id}/approve`);
+}

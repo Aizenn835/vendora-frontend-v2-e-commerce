@@ -11,7 +11,7 @@ const formatDate = (value) => {
 
 const PAGE_SIZE = 8;
 
-export default function AdminTableSellerApplication({onOpen}){
+export default function AdminTableSellerApplication({onOpen , reloadKey}){
 
 
     const [filter , setFilter] = useState("PENDING");
@@ -39,7 +39,6 @@ export default function AdminTableSellerApplication({onOpen}){
                 if(!ignore) {
                     setData(response.data);
                 }
-                
             })
             .catch((err) => {
                 if(!ignore) setError(err.response?.data?.message || "Could not load applications");
@@ -51,7 +50,7 @@ export default function AdminTableSellerApplication({onOpen}){
             return(() => {
                 ignore = true;
             })
-    }, [filter , page]);
+    }, [filter , page , reloadKey]);
 
     useEffect(() => {
         let ignore = false;
@@ -64,13 +63,13 @@ export default function AdminTableSellerApplication({onOpen}){
                 if(!ignore) setError(err.response?.data?.message || "Could not fetch status count.");
             })
             .finally(() => {
-                setIsLoading(false);
+                if(!ignore) setIsLoading(false);
             });
 
             return(() => {
                 ignore = true;
             });
-    }, [filter]);
+    }, [filter , reloadKey]);
 
     const handleFilter = (value) => {
         setFilter(value);

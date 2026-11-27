@@ -18,6 +18,6 @@ export const enumChecker = (sellerCategory) => {
 }
 
 export const formatInitial = (value) => {
-    return value.split(" ").slice(0,2).map((word) => word[0]).join("").toUpperCase();
+    return value?.split(" ").slice(0,2).map((word) => word[0]).join("").toUpperCase();
 }
 
