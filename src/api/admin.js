@@ -15,3 +15,7 @@ export const viewSellerById = ({id} = {}) => {
 export const approveApplication = ({id} = {}) => {
     return axiosClient.patch(`/api/admin/seller/${id}/approve`);
 }
+
+export const adminInfo = () => {
+    return axiosClient.get("/api/admin/info")
+}

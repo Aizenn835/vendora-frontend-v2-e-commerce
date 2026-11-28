@@ -1,10 +1,11 @@
-import './SideBar.css'
-import logo from '../../../assets/logo-vendora/logo-mark.svg'
-import profile from '../../../assets/admin-images/admin-pfp.jpeg'
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { IconLayoutDashboard , IconFilePencil , IconReportAnalytics , IconHeartHandshake , IconSettings} from '@tabler/icons-react';
 
+import { IconLayoutDashboard , IconFilePencil , IconReportAnalytics , IconHeartHandshake , IconSettings} from '@tabler/icons-react';
+import logo from '../../../assets/logo-vendora/logo-mark.svg'
+import { adminInfo } from '../../../api/admin';
+import profile from '../../../assets/admin-images/admin-pfp.jpeg'
+import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import './SideBar.css'
 
 
 const nav = [
@@ -17,6 +18,34 @@ const nav = [
 
 
 export default function SideBar(){
+
+    const [admin , setAdmin] = useState("");
+    const [email , setEmail] = useState("");
+    const [error , setError] = useState("");
+    const [isLoading , setIsLoading] = useState(false);
+
+
+    useEffect(() => {
+        setIsLoading(true);
+        let ignore = false;
+
+        adminInfo()
+         .then((response) => {
+            if(!ignore) {
+                setAdmin(response?.data?.name);
+                setEmail(response?.data?.email);
+            }
+         })
+         .catch((err) => {
+            if(!ignore) setError(err.response?.data?.message || "Failed to fetch current admin info.");
+         })
+         .finally(() => {
+            setIsLoading(false);
+         });
+         return (() => {
+            ignore = true;
+         });
+    });
 
 
     return(
@@ -45,8 +74,8 @@ export default function SideBar(){
                         <div className="online-indicator-admin"></div>
                     </div>
                     <div className="pfp-user-info-container">
-                        <p className="user-name-admin">Carla Santa Cruz</p>
-                        <span className='user-email-admin'>cruz.carla@gmail.com</span>
+                        <p className="user-name-admin">{admin}</p>
+                        <span className='user-email-admin'>{email}</span>
                     </div>
                 </div>
             </nav>

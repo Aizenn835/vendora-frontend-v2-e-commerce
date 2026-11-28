@@ -3,6 +3,7 @@ import AdminApprovalModal from '../AdminApprovalModal/AdminApprovalModal.jsx'
 import AdminTableSellerApplication from '../AdminTableSellerApplication/AdminTableSellerApplication.jsx';
 import './SellerApplicationAdmin.css'
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 
 export default function SellerApplicationAdmin(){
@@ -22,6 +23,7 @@ export default function SellerApplicationAdmin(){
 
     return(
         <div className="seller-application-admin-container">
+            <Toaster />
             <AdminContentHeader />
             <AdminApprovalModal isOpen={isApprovalModalOpen} 
                                 id={applicationId}

@@ -113,7 +113,6 @@
 .pfp-user-info-container{
     display:flex;
     flex-direction: column;
-    gap:3px;
 }
 .user-name-admin{
     color:var(--color-secondary);

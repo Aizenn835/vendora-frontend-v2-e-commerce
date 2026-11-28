@@ -78,6 +78,9 @@ export default function AdminTableSellerApplication({onOpen , reloadKey}){
 
     const rows = data?.content ?? [];
     const totalPage = data?.totalPages ?? 0;
+    const totalElements = data?.totalElements ?? 0;
+    const from = rows.length ? page * PAGE_SIZE + 1 : 0;
+    const to = rows.length ? from + rows.length - 1 : 0;
     
     return(
         <section>
@@ -135,7 +138,7 @@ export default function AdminTableSellerApplication({onOpen , reloadKey}){
             </div>
 
             <div className="applications-footer">
-                <span>Showing 1 to 10 of 20</span>
+                <span>Showing {from} to {to} of {totalElements}</span>
                 <div className="applications-pager">
                     <button type="button" disabled={page === 0} onClick={() => setPage(page - 1)}>Previous</button>
                     <span>Page {totalPage === 0 ? 0 : page + 1 } of {totalPage}</span>
